@@ -5,6 +5,7 @@ export default class HomePage extends Component {
         return (
             <div>
                 Home
+                this is the home page yay
             </div>
         )
     }
