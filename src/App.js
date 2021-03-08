@@ -1,25 +1,97 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// import { setUserStorage, getStoredUserToken } from './UTILS/LocalStorageUtils.js';
+
+// import Header from './COMPONENTS/Header.js';
+// import PrivateRoute from './COMPONENTS/PrivateRoute.js';
+
+// import SignInPage from './AUTH/SignInPage.js';
+// import SignUpPage from './AUTH/SignUpPage.js';
+
+// import FavoritesPage from './FAVORITES/FavoritesPage.js';
+// import SearchPage from './FAVORITES/SearchPage.js';
+
+
+export default class App extends React.Component {
+
+  // state = {
+  //   token: getStoredUserToken(),
+  // }
+
+  // handleUserChange = (user) => {
+  //   setUserStorage(user);
+
+  //   this.setState({
+  //     token: user.token,
+  //   })
+  // }
+
+  // handleLogout = () => {
+  //   const user = {
+  //     id: '',
+  //     email: '',
+  //     token: '',
+  //   }
+
+  //   this.handleUserChange(user);
+  // }
+
+  render() {
+    return (
+      <div>
+        <Router>
+          <p>yo</p>
+          {/* <Header
+            token={this.state.token}
+            handleLogout={this.handleLogout} />
+          <Switch>
+            <PrivateRoute
+              path="/favorites"
+              exact
+              token={this.state.token}
+              render={(routerProps) =>
+                <FavoritesPage
+                  token={this.state.token}
+                  {...routerProps}
+                />}
+            />
+            <PrivateRoute
+              path="/search"
+              exact
+              token={this.state.token}
+              render={(routerProps) =>
+                <SearchPage
+                  token={this.state.token}
+                  {...routerProps}
+                />}
+            />
+            <Route
+              path="/"
+              exact
+              render={(routerProps) =>
+                <SignInPage
+                  handleUserChange={this.handleUserChange}
+                  {...routerProps}
+                />}
+            />
+            <Route
+              path="/signup"
+              exact
+              render={(routerProps) =>
+                <SignUpPage
+                  handleUserChange={this.handleUserChange}
+                  {...routerProps}
+                />}
+            />
+          </Switch> */}
+        </Router>
+      </div>
+    )
+  }
 }
-
-export default App;
