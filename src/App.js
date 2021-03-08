@@ -8,8 +8,8 @@ import {
 
 import { setUserStorage, getStoredUserToken } from './UTILS/LocalStorageUtils.js';
 
-// import Header from './COMPONENTS/Header.js';
-// import PrivateRoute from './COMPONENTS/PrivateRoute.js';
+import Header from './COMPONENTS/Header.js';
+import PrivateRoute from './COMPONENTS/PrivateRoute.js';
 
 import SignInPage from './AUTH/SignInPage.js';
 import SignUpPage from './AUTH/SignUpPage.js';
@@ -46,10 +46,18 @@ export default class App extends React.Component {
     return (
       <div>
         <Router>
-          {/* <Header
+          <Header
             token={this.state.token}
-            handleLogout={this.handleLogout} /> */}
+            handleLogout={this.handleLogout} />
           <Switch>
+            <Route
+              path="/"
+              exact
+              render={(routerProps) =>
+                <HomePage
+                  {...routerProps}
+                />}
+            />
             {/* <PrivateRoute
               path="/favorites"
               exact
@@ -85,6 +93,14 @@ export default class App extends React.Component {
               render={(routerProps) =>
                 <SignUpPage
                   handleUserChange={this.handleUserChange}
+                  {...routerProps}
+                />}
+            />
+            <Route
+              path="/about"
+              exact
+              render={(routerProps) =>
+                <AboutUsPage
                   {...routerProps}
                 />}
             />
