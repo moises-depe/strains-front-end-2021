@@ -6,13 +6,13 @@ import {
   Switch,
 } from 'react-router-dom';
 
-// import { setUserStorage, getStoredUserToken } from './UTILS/LocalStorageUtils.js';
+import { setUserStorage, getStoredUserToken } from './UTILS/LocalStorageUtils.js';
 
 // import Header from './COMPONENTS/Header.js';
 // import PrivateRoute from './COMPONENTS/PrivateRoute.js';
 
-// import SignInPage from './AUTH/SignInPage.js';
-// import SignUpPage from './AUTH/SignUpPage.js';
+import SignInPage from './AUTH/SignInPage.js';
+import SignUpPage from './AUTH/SignUpPage.js';
 
 // import FavoritesPage from './FAVORITES/FavoritesPage.js';
 // import SearchPage from './FAVORITES/SearchPage.js';
@@ -20,38 +20,37 @@ import {
 
 export default class App extends React.Component {
 
-  // state = {
-  //   token: getStoredUserToken(),
-  // }
+  state = {
+    token: getStoredUserToken(),
+  }
 
-  // handleUserChange = (user) => {
-  //   setUserStorage(user);
+  handleUserChange = (user) => {
+    setUserStorage(user);
 
-  //   this.setState({
-  //     token: user.token,
-  //   })
-  // }
+    this.setState({
+      token: user.token,
+    })
+  }
 
-  // handleLogout = () => {
-  //   const user = {
-  //     id: '',
-  //     email: '',
-  //     token: '',
-  //   }
+  handleLogout = () => {
+    const user = {
+      id: '',
+      email: '',
+      token: '',
+    }
 
-  //   this.handleUserChange(user);
-  // }
+    this.handleUserChange(user);
+  }
 
   render() {
     return (
       <div>
         <Router>
-          <p>yo</p>
           {/* <Header
             token={this.state.token}
-            handleLogout={this.handleLogout} />
+            handleLogout={this.handleLogout} /> */}
           <Switch>
-            <PrivateRoute
+            {/* <PrivateRoute
               path="/favorites"
               exact
               token={this.state.token}
@@ -70,9 +69,9 @@ export default class App extends React.Component {
                   token={this.state.token}
                   {...routerProps}
                 />}
-            />
+            /> */}
             <Route
-              path="/"
+              path="/signin"
               exact
               render={(routerProps) =>
                 <SignInPage
@@ -89,7 +88,7 @@ export default class App extends React.Component {
                   {...routerProps}
                 />}
             />
-          </Switch> */}
+          </Switch>
         </Router>
       </div>
     )
