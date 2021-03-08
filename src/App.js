@@ -17,6 +17,9 @@ import SignUpPage from './AUTH/SignUpPage.js';
 // import FavoritesPage from './FAVORITES/FavoritesPage.js';
 // import SearchPage from './FAVORITES/SearchPage.js';
 
+import HomePage from './HomePage.js';
+import AboutUsPage from './AboutUsPage.js';
+
 
 export default class App extends React.Component {
 
