@@ -100,10 +100,12 @@ export default class App extends React.Component {
               exact
               token={this.state.token}
               render={(routerProps) =>
+
                 <SearchPage
                   token={this.state.token}
                   {...routerProps}
-                />}
+                />
+              }
             />
             <Route
               path="/signin"
