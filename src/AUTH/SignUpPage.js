@@ -1,5 +1,5 @@
 import React from 'react';
-// import { userSignUp } from '../UTILS/ApiUtils.js';
+import { userSignUp } from '../UTILS/ApiUtils.js';
 
 export default class SignUpPage extends React.Component {
     state = {
@@ -18,9 +18,9 @@ export default class SignUpPage extends React.Component {
     handleSignUp = async (e) => {
         e.preventDefault();
 
-        // const user = await userSignUp(this.state.email, this.state.password);
+        const user = await userSignUp(this.state.email, this.state.password);
 
-        // this.props.handleUserChange(user);
+        this.props.handleUserChange(user);
 
         this.props.history.push('/search');  // user is pushed to seach page after signin
     }
