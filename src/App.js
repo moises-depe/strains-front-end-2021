@@ -15,7 +15,7 @@ import SignInPage from './AUTH/SignInPage.js';
 import SignUpPage from './AUTH/SignUpPage.js';
 
 // import FavoritesPage from './FAVORITES/FavoritesPage.js';
-// import SearchPage from './FAVORITES/SearchPage.js';
+import SearchPage from './SearchPage.js';
 
 import HomePage from './HomePage.js';
 import AboutUsPage from './AboutUsPage.js';
@@ -70,7 +70,7 @@ export default class App extends React.Component {
                   token={this.state.token}
                   {...routerProps}
                 />}
-            />
+            /> */}
             <PrivateRoute
               path="/search"
               exact
@@ -80,7 +80,7 @@ export default class App extends React.Component {
                   token={this.state.token}
                   {...routerProps}
                 />}
-            /> */}
+            />
             <Route
               path="/signin"
               exact
