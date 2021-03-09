@@ -5,6 +5,7 @@ import { getAllStrains, getAllUserFavorites } from './UTILS/ApiUtils.js';
 
 export default class SearchPage extends Component {
     state = {
+
         strains: {},
         favorites: [],
         load: false,
@@ -47,7 +48,6 @@ export default class SearchPage extends Component {
                     </div>
                     )}
             </div >
-            
         )
     }
 }
