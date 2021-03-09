@@ -27,6 +27,7 @@ export default class App extends React.Component {
 
   state = {
     token: getStoredUserToken(),
+    showPopup: true,
   }
 
   handleUserChange = (user) => {
@@ -49,10 +50,10 @@ export default class App extends React.Component {
 
 
   //Age verification popup box
-  constructor(props) {
-    super(props);
-    this.state = { showPopup: true };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { showPopup: true };
+  // }
 
   togglePopup() {
     this.setState({
