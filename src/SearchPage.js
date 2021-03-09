@@ -28,7 +28,7 @@ export default class SearchPage extends Component {
             <div>
                 {this.state.load &&
                     this.state.test.map(fave =>
-                        <p>{fave[0]}</p>
+                        <p>{fave[1].flavors}</p>
                     )}
             </div >
         )
