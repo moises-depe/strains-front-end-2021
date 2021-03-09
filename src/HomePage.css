@@ -11,3 +11,75 @@
 img {
     width: 250px;
 }
+
+/* .pop-up {
+    overflow: hidden;
+    position: fixed;
+    text-align: center;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    background-color: gray;
+    opacity: 0.95;
+} */
+
+.inner-pop {
+    background-color: cornflowerblue;
+    margin: auto;
+    height: 60%;
+    width: 50%;
+    border: 3px solid black;
+    padding: 75px;
+
+}
+
+.adultentry {
+
+    background-color: greenyellow;
+    border: 2px solid black;
+}
+
+.pop-header {
+    background-color: yellow;
+    border: 2px solid black;
+}
+
+.terms-conditions {
+    margin-top: 20px;
+    background-color: rgb(146, 110, 146);
+    border: 2px solid black;
+}
+
+.enter-home {
+    background-color: pink;
+    border: 2px solid black;
+}
+
+.submit-popup {
+    background-color: gold;
+    border: 2px solid black;
+}
+ .submit-button {
+     margin-top: 20px;
+ }
+
+ .popup {  
+    position: fixed;  
+    width: 100%;  
+    height: 100%;  
+    top: 0;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+    margin: auto;  
+    background-color: rgba(39, 145, 83, 0.5);  
+  }  
+  .popup-inner {  
+    position: absolute;  
+    left: 25%;  
+    right: 25%;  
+    top: 25%;  
+    bottom: 25%;  
+    margin: auto;  
+  }
