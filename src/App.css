@@ -10,6 +10,7 @@ body {
     text-align: center;
     background-color: rgb(209, 203, 200);
 }
+
 .navlink {
     color: black;
     text-decoration: none;
@@ -21,8 +22,6 @@ body {
 .home-title {
     font-size: 40px;
 }
-
-
 
 label {
     display: block;
