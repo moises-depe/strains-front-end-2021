@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
-import { getAllStrains } from './UTILS/ApiUtils.js';
+import { getAllStrains, getAllUserFavorites } from './UTILS/ApiUtils.js';
 
 
 
 export default class SearchPage extends Component {
     state = {
         strains: {},
+        favorites: [],
         load: false,
     }
 
     componentDidMount = async () => {
         const data = await getAllStrains();
-
+        
         this.setState({
             strains: Object.entries(data).slice(0, 5),
             load: true,
@@ -20,7 +21,10 @@ export default class SearchPage extends Component {
         console.log(this.state.strains)
     }
 
-
+    fetchFavorites = async () => {
+        const favorites = await getAllUserFavorites();
+        this.setState({ favorites });
+    }
 
     render() {
         const strains = this.state.strains;
