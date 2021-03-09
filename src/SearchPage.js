@@ -6,23 +6,31 @@ import { getAllStrains } from './UTILS/ApiUtils.js';
 export default class SearchPage extends Component {
     state = {
         test: 'initial state before api call',
+        load: false,
     }
 
     componentDidMount = async () => {
         const data = await getAllStrains();
 
         this.setState({
-            test: data.body,
+            test: Object.entries(data).slice(0, 5),
+            load: true,
         })
 
-        console.log('this shows the call made on mount')
+        console.log(this.state.test)
     }
+
+
+
     render() {
-        console.log(this.state.test);
+        console.log();
         return (
             <div>
-                {this.state.test}
-            </div>
+                {this.state.load &&
+                    this.state.test.map(fave =>
+                        <p>{fave[0]}</p>
+                    )}
+            </div >
         )
     }
 }
