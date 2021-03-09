@@ -34,15 +34,6 @@ export default class FavoritesPage extends Component {
     //
     //component did update linked to prev.state/this.state of favorites
 
-    checkFavoriteStatus = (catFact, favorites) => {
-        for (let favorite of favorites) {
-            if (favorite.fact_api_id === catFact._id) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     render() {
         return (
             <div>
