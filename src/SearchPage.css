@@ -1,0 +1,14 @@
+.strain {
+    padding: 10px;
+    border: solid 1px black;
+    margin: 5px;
+    max-width: 200px;
+    text-align: start;
+}
+
+.list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+}
