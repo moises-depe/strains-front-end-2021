@@ -27,9 +27,9 @@ export default class Header extends React.Component {
                     <NavLink exact activeClassName="current-page" to="/search" className="links">
                         Search
                 </NavLink>
-                    <button onClick={this.props.handleLogout}>
+                    <Link onClick={this.props.handleLogout} className="links">
                         Log Out
-                </button>
+                </Link>
                 </>}
                 <Link to="/about" className="links">
                     About Us
