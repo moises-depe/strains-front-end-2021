@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const URL = `PLACEHOLDER`;  // update with Heroku
+const URL = `https://secret-basin-82726.herokuapp.com`;  // update with Heroku
 
 export async function userSignUp(email, password) {
     const response = await request
