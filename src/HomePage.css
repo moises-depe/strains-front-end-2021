@@ -12,7 +12,7 @@ img {
     width: 250px;
 }
 
-.pop-up {
+/* .pop-up {
     overflow: hidden;
     position: fixed;
     text-align: center;
@@ -22,7 +22,7 @@ img {
     width: 100%;
     background-color: gray;
     opacity: 0.95;
-}
+} */
 
 .inner-pop {
     background-color: cornflowerblue;
@@ -47,7 +47,7 @@ img {
 
 .terms-conditions {
     margin-top: 20px;
-    background-color: purple;
+    background-color: rgb(146, 110, 146);
     border: 2px solid black;
 }
 
@@ -82,7 +82,4 @@ img {
     top: 25%;  
     bottom: 25%;  
     margin: auto;  
-    border-radius: 20px;  
-    background: white;  
-    border: solid black 1px;
   }
