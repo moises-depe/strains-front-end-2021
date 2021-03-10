@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const URL = `http://localhost:3002`;  // update with Heroku
+const URL = `https://fathomless-fortress-68501.herokuapp.com`;  // update with Heroku
 
 export async function userSignUp(email, password) {
     const response = await request
