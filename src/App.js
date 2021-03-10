@@ -25,6 +25,7 @@ export default class App extends React.Component {
 
   state = {
     token: getStoredUserToken(),
+    showPopup: true,
   }
 
   handleUserChange = (user) => {
@@ -43,6 +44,19 @@ export default class App extends React.Component {
     }
 
     this.handleUserChange(user);
+  }
+
+
+  //Age verification popup box
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { showPopup: true };
+  // }
+
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
   }
 
   render() {
@@ -76,10 +90,12 @@ export default class App extends React.Component {
               exact
               token={this.state.token}
               render={(routerProps) =>
+
                 <SearchPage
                   token={this.state.token}
                   {...routerProps}
-                />}
+                />
+              }
             />
             <Route
               path="/signin"
