@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const URL = `https://fathomless-fortress-68501.herokuapp.com`;  // update with Heroku
+const URL = `http://localhost:3002`;  // update with Heroku
 
 export async function userSignUp(email, password) {
     const response = await request
@@ -51,7 +51,7 @@ export async function addUserFavorite(newFavorite, token) {
     const response = await request
         .post(`${URL}/api/favorites`)
         .set('Authorization', token)
-        .send({ newFavorite })
+        .send( newFavorite )
 
     return response.body;
 }
