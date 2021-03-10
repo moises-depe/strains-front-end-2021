@@ -10,16 +10,16 @@ import { setUserStorage, getStoredUserToken } from './UTILS/LocalStorageUtils.js
 
 import Header from './COMPONENTS/Header.js';
 import PrivateRoute from './COMPONENTS/PrivateRoute.js';
+import PopUp from './COMPONENTS/PopUp.js';
 
 import SignInPage from './AUTH/SignInPage.js';
 import SignUpPage from './AUTH/SignUpPage.js';
 
-// import FavoritesPage from './FAVORITES/FavoritesPage.js';
+// import FavoritesPage from './FavoritesPage.js';
 import SearchPage from './SearchPage.js';
-
 import HomePage from './HomePage.js';
 import AboutUsPage from './AboutUsPage.js';
-
+import SharedPage from './SharedPage.js';
 
 export default class App extends React.Component {
 
@@ -46,14 +46,10 @@ export default class App extends React.Component {
     this.handleUserChange(user);
   }
 
-
   //Age verification popup box
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { showPopup: true };
-  // }
+  togglePopup(e) {
+    e.preventDefault();
 
-  togglePopup() {
     this.setState({
       showPopup: !this.state.showPopup
     });
@@ -62,6 +58,13 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+        {
+          this.state.showPopup
+            ? <PopUp
+              closePopup={this.togglePopup.bind(this)}
+            />
+            : null
+        }
         <Router>
           <Header
             token={this.state.token}
@@ -120,6 +123,14 @@ export default class App extends React.Component {
               exact
               render={(routerProps) =>
                 <AboutUsPage
+                  {...routerProps}
+                />}
+            />
+            <Route
+              path="/share/:id"
+              exact
+              render={(routerProps) =>
+                <SharedPage
                   {...routerProps}
                 />}
             />
