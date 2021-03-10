@@ -50,32 +50,50 @@ export default class SearchPage extends Component {
         }
     }
 */
-    
+    handleRaceChange= async (e) =>  this.setState({ race: e.target.value });
+
     handlefilterRace = async (racetype) => {
         const filteredRace = await this.state.strains.filter(weed => weed[1].race === racetype); 
         this.setState({ filterstrain: filteredRace })
     }
     // Race is the only one that works ATM
+    handleFlavorChange= async (e) =>  this.setState({ flavor: e.target.value });
+
     handleFilterFlavor = async (flavortype) => {
-        const filteredFlavor = await this.state.strains.filter(weed => weed[1].flavors === flavortype); 
-        this.setState({ filterstrain: filteredFlavor })
+        //const flavortown = this.state.strains.map(strain => )
+
+        //const filteredFlavor = await flavortown.filter(weed => weed[1].flavors === flavortype); 
+        //this.setState({ filterstrain: filteredFlavor })
     }
+
+    handlePosChange= async (e) =>  this.setState({ pos: e.target.value });
+
     handleFilterPos = async (postype) => {
         const filteredPos = await this.state.strains.filter(weed => weed[1].positive === postype); 
         this.setState({ filterstrain: filteredPos })
     }
+
+    handleNegChange= async (e) =>  this.setState({ neg: e.target.value });
+
     handleFilterNeg = async (negtype) => {
         const filteredNeg = await this.state.strains.filter(weed => weed[1].negative === negtype); 
         this.setState({ filterstrain: filteredNeg })
     }
+
+    handleMedChange= async (e) =>  this.setState({ med: e.target.value });
+
     handleFilterMed = async (medtype) => {
         const filteredMed = await this.state.strains.filter(weed => weed[1].medical === medtype); 
         this.setState({ filterstrain: filteredMed })
     }
+    
+    handleSearchChange = e => this.setState({ search: e.target.value })
+
     handleFilterName = async (name) => {
         const filteredName = await this.state.strains.filter(weed => weed[0] === name); 
         this.setState({ filterstrain: filteredName })
     }
+    /*
     doSearch = async () => {
         const aStrain = await getStrainByName(this.state.search)
         console.log(aStrain);
@@ -83,19 +101,7 @@ export default class SearchPage extends Component {
         const result = await this.findById(this.state.strains, aStrain.id)
         console.log(result);
         this.setState({ strains: result })
-    }
-
-    handleRaceChange= async (e) =>  this.setState({ race: e.target.value });
-
-    handleFlavorChange= async (e) =>  this.setState({ flavor: e.target.value });
-
-    handlePosChange= async (e) =>  this.setState({ pos: e.target.value });
-
-    handleNegChange= async (e) =>  this.setState({ neg: e.target.value });
-
-    handleMedChange= async (e) =>  this.setState({ med: e.target.value });
-
-    handleSearchChange = e => this.setState({ search: e.target.value })
+    }*/
 
     //filter Race is the only one that works. can only use once before you have to refresh. maybe make two 'strain array' one for filtering one not.
     handleSubmit = async e => {
@@ -135,7 +141,8 @@ export default class SearchPage extends Component {
     }
 
     render() {
-        const strains = this.state.strains;
+        const strains = this.state.filterstrain;
+        console.log(this.state.race);
         console.log(strains);
         return (
             <div>
@@ -147,7 +154,7 @@ export default class SearchPage extends Component {
                     <option value='sativa'>Sativa</option>
                 </select>
                 <select onChange={this.handleFlavorChange}>
-                    <option>Select A Flavor</option>
+                    <option>FlavorTown options</option>
                     <option value='Ammonia'>Ammonia</option>
                     <option value='Apple'>Apple</option>
                     <option value='Apricot'>Apricot</option>
@@ -249,6 +256,7 @@ export default class SearchPage extends Component {
                                 <p className="flavors"><span className="name-header">Flavors:</span> {strain[1].flavors.map(flavor => <li>{flavor}</li>)}</p>
                                 <p className="medical"><span className="name-header">Medical Benefit:</span> {strain[1].effects.medical.map(medical => <li>{medical}</li>)}</p>
                                 <p className="recreation"><span className="name-header">Recreational Effect:</span> {strain[1].effects.positive.map(positive => <li>{positive}</li>)}</p>
+                                <button onClick={() => this.handleFavoriteClick(strain, this.state.description, this.state.img)}>Add to favorite</button>
 
                             </div>
                     )}  
