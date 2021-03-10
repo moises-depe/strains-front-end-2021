@@ -21,9 +21,6 @@ import HomePage from './HomePage.js';
 import AboutUsPage from './AboutUsPage.js';
 import SharedPage from './SharedPage.js';
 
-
-
-
 export default class App extends React.Component {
 
   state = {
@@ -96,10 +93,12 @@ export default class App extends React.Component {
               exact
               token={this.state.token}
               render={(routerProps) =>
+
                 <SearchPage
                   token={this.state.token}
                   {...routerProps}
-                />}
+                />
+              }
             />
             <Route
               path="/signin"
