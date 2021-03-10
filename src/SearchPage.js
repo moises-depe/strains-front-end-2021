@@ -32,8 +32,8 @@ export default class SearchPage extends Component {
     }
 
     fetchFavorites = async () => {
-        const favorites = await getAllUserFavorites(this.props.token);
-        this.setState({ favorites });
+        const data = await getAllUserFavorites(this.props.token);
+        this.setState({ favorites: data });
     }
     // needs work on, dont know how to get ID to match description with object
     handleDescription = async () => {
@@ -73,9 +73,9 @@ export default class SearchPage extends Component {
             race: rawStrain[1].race,
             img: 'http://www.placekitten.com/300/300',
             flavors: rawStrain[1].flavors,
-            positive: rawStrain[1].positive,
-            negative: rawStrain[1].negative,
-            medical: rawStrain[1].medical,
+            positive: rawStrain[1].effects.positive,
+            negative: rawStrain[1].effects.negative,
+            medical: rawStrain[1].effects.medical,
             description: 'hello there',
         }
         await addUserFavorite(favoriteStrain, this.props.token);
@@ -83,15 +83,16 @@ export default class SearchPage extends Component {
         await this.fetchFavorites();
     }
 
-    isAFavorite = (strains) => {
-        const isIsFavorites = this.state.favorites.find(favorite => favorite.name === strains[0]);
+    isAFavorite = (strain) => {
+        const isIsFavorites = this.state.favorites.find(favorite => favorite.name === strain[0]);
 
         return Boolean(isIsFavorites);
     }
+    
 
     render() {
         const strains = this.state.filterstrain;
-        console.log(this.state.favorite);
+        console.log(this.state.favorites);
         return (
             <div>
                 <form onSubmit={this.handleSubmit} className="searchbar">
@@ -196,8 +197,12 @@ export default class SearchPage extends Component {
                                 <p className="flavors"><span className="name-header">Flavors:</span> {strain[1].flavors.map(flavor => <li>{flavor}</li>)}</p>
                                 <p className="medical"><span className="name-header">Medical Benefit:</span> {strain[1].effects.medical.map(medical => <li>{medical}</li>)}</p>
                                 <p className="recreation"><span className="name-header">Recreational Effect:</span> {strain[1].effects.positive.map(positive => <li>{positive}</li>)}</p>
-                                <button onClick={() => this.handleFavoriteClick(strain, this.state.description, this.state.img)}>Add to favorite</button>
-
+                                <p>{
+                                    this.isAFavorite(strain)
+                                    ? '🔥🔥🔥'
+                                    : <button onClick={() => this.handleFavoriteClick(strain, this.state.description, this.state.img)}>Add to favorite</button>
+                                }
+                                </p>
                             </div>
                         )}
                 </div>
