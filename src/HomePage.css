@@ -12,7 +12,7 @@ img {
     width: 250px;
 }
 
-.pop-up {
+/* .pop-up {
     overflow: hidden;
     position: fixed;
     text-align: center;
@@ -22,7 +22,7 @@ img {
     width: 100%;
     background-color: gray;
     opacity: 0.95;
-}
+} */
 
 .inner-pop {
     background-color: cornflowerblue;
@@ -47,7 +47,7 @@ img {
 
 .terms-conditions {
     margin-top: 20px;
-    background-color: purple;
+    background-color: rgb(146, 110, 146);
     border: 2px solid black;
 }
 
@@ -60,11 +60,11 @@ img {
     background-color: gold;
     border: 2px solid black;
 }
- .submit-button {
-     margin-top: 20px;
- }
+.submit-button {
+    margin-top: 20px;
+}
 
- .popup {  
+.popup {  
     position: fixed;  
     width: 100%;  
     height: 100%;  
@@ -74,15 +74,18 @@ img {
     bottom: 0;  
     margin: auto;  
     background-color: rgba(39, 145, 83, 0.5);  
-  }  
-  .popup-inner {  
+}  
+.popup-inner {  
     position: absolute;  
     left: 25%;  
     right: 25%;  
     top: 25%;  
     bottom: 25%;  
     margin: auto;  
-    border-radius: 20px;  
-    background: white;  
-    border: solid black 1px;
-  }
+}
+
+.home-description {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
