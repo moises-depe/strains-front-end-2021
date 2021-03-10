@@ -20,8 +20,6 @@ import SearchPage from './SearchPage.js';
 import HomePage from './HomePage.js';
 import AboutUsPage from './AboutUsPage.js';
 
-import PopUp from './COMPONENTS/PopUp.js';
-
 
 export default class App extends React.Component {
 
@@ -64,14 +62,6 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-
-        {
-          this.state.showPopup
-            ? <PopUp
-              closePopup={this.togglePopup.bind(this)}
-            />
-            : null
-        }
         <Router>
           <Header
             token={this.state.token}
