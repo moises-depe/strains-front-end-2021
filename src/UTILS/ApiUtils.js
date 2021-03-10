@@ -63,3 +63,10 @@ export async function deleteUserFavorite(favoriteId, token) {
 
     return response.body;
 }
+
+export async function shareUserFavorite(favoriteId) {
+    const response = await request
+        .get(`${URL}/share/${favoriteId}`)
+
+    return response.body;
+}

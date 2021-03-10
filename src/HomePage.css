@@ -60,6 +60,7 @@ img {
     background-color: gold;
     border: 2px solid black;
 }
+
 .submit-button {
     margin-top: 20px;
 }
@@ -74,8 +75,9 @@ img {
     bottom: 0;  
     margin: auto;  
     background-color: rgba(39, 145, 83, 0.5);  
-}  
-.popup-inner {  
+  }
+
+  .popup-inner {  
     position: absolute;  
     left: 25%;  
     right: 25%;  
