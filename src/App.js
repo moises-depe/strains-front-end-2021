@@ -20,8 +20,6 @@ import SearchPage from './SearchPage.js';
 import HomePage from './HomePage.js';
 import AboutUsPage from './AboutUsPage.js';
 
-import PopUp from './COMPONENTS/PopUp.js';
-
 
 export default class App extends React.Component {
 
@@ -47,30 +45,9 @@ export default class App extends React.Component {
     this.handleUserChange(user);
   }
 
-
-  //Age verification popup box
-  constructor(props) {
-    super(props);
-    this.state = { showPopup: true };
-  }
-
-  togglePopup() {
-    this.setState({
-      showPopup: !this.state.showPopup
-    });
-  }
-
   render() {
     return (
       <div>
-
-        {
-          this.state.showPopup
-            ? <PopUp
-              closePopup={this.togglePopup.bind(this)}
-            />
-            : null
-        }
         <Router>
           <Header
             token={this.state.token}
