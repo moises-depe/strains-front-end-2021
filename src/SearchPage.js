@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { getAllStrains, getAllUserFavorites, addUserFavorite, getStrainByName, getStrainDescriptionById } from './UTILS/ApiUtils.js';
+<<<<<<< HEAD
 // import './SearchPage.css';
+=======
+import './SearchPage.css';
+>>>>>>> 216acbffd5cdd47987123fc41fee80e8d322f442
 
 
 
@@ -14,9 +18,12 @@ export default class SearchPage extends Component {
         img: 'http://www.placekitten.com/300/300',
         race: '',
         flavor: '',
+<<<<<<< HEAD
         pos: '',
         // neg: '',
         med: '',
+=======
+>>>>>>> 216acbffd5cdd47987123fc41fee80e8d322f442
         load: false,
     }
 
@@ -38,11 +45,19 @@ export default class SearchPage extends Component {
     // needs work on, dont know how to get ID to match description with object
     handleDescription = async () => {
         const desc = await getStrainDescriptionById();
+<<<<<<< HEAD
         this.setState({ description: desc })
     }
 
 
 
+=======
+        this.setState({ description: desc})
+    }
+    
+    handleSearchChange = e => this.setState({ search: e.target.value })
+    
+>>>>>>> 216acbffd5cdd47987123fc41fee80e8d322f442
     // needs fixing, dont know the problem 
     /*findById = async (array, id) => {
         for (let item of array) {
@@ -50,6 +65,7 @@ export default class SearchPage extends Component {
         }
     }
 */
+<<<<<<< HEAD
 
     handlefilterRace = async (racetype) => {
         const filteredRace = await this.state.strains.filter(weed => weed[1].race === racetype);
@@ -75,6 +91,12 @@ export default class SearchPage extends Component {
     handleFilterName = async (name) => {
         const filteredName = await this.state.strains.filter(weed => weed[0] === name);
         this.setState({ filterstrain: filteredName })
+=======
+    // look at this cause im not for sure what to do.
+    handlefilterRace = async (racetype) => {
+        const filteredRace = await this.state.strains.filter(weed => weed[1].race === racetype); 
+        this.setState({ strains: filteredRace })
+>>>>>>> 216acbffd5cdd47987123fc41fee80e8d322f442
     }
     doSearch = async () => {
         const aStrain = await getStrainByName(this.state.search)
@@ -85,6 +107,7 @@ export default class SearchPage extends Component {
         this.setState({ strains: result })
     }
 
+<<<<<<< HEAD
     handleRaceChange = async (e) => this.setState({ race: e.target.value });
 
     handleFlavorChange = async (e) => this.setState({ flavor: e.target.value });
@@ -112,6 +135,20 @@ export default class SearchPage extends Component {
 
     // talk to group about desc and img, mainly img
     // work on backend to be able to post(name null??)
+=======
+    handleRaceChange= async (e) =>  this.setState({ race: e.target.value });
+
+    handleFlavorChange= async (e) =>  this.setState({ flavor: e.target.value });
+
+    handleSubmit = async e => {
+        e.preventDefault();
+    
+        await this.handlefilterRace(this.state.race);
+        }
+
+        // talk to group about desc and img, mainly img
+        // work on backend to be able to post(name null??)
+>>>>>>> 216acbffd5cdd47987123fc41fee80e8d322f442
     handleFavoriteClick = async (rawStrain, rawDesc, rawImg) => {
         const favoriteStrain = {
             name: rawStrain[0],
@@ -140,6 +177,7 @@ export default class SearchPage extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit} className="searchbar">
+<<<<<<< HEAD
                     <select onChange={this.handleRaceChange}>
                         <option>Select A Type</option>
                         <option value='hybrid'>Hybrid</option>
@@ -241,6 +279,67 @@ export default class SearchPage extends Component {
                     <button>Search for strains</button>
                 </form>
                 <div className="list">
+=======
+                <select onChange={this.handleRaceChange}>
+                    <option value='indica'>Indica</option>
+                    <option value='hybrid'>Hybrid</option>
+                    <option value='sativa'>Sativa</option>
+                </select>
+                <select onChange={this.handleFlavorChange}>
+                    <option value='Earthy'>Earthy</option>
+                    <option value='Chemical'>Chemical</option>
+                    <option value='Pine'>Pine</option>
+                    <option value='Spicy/Herbal'>Spicy/Herbal</option>
+                    <option value='Pungent'>Pungent</option>
+                    <option value='Pepper'>Pepper</option>
+                    <option value='Flowery'>Flowery</option>
+                    <option value='Citrus'>Citrus</option>
+                    <option value='Orange'>Orange</option>
+                    <option value='Sweet'>Sweet</option>
+                    <option value='Skunk'>Skunk</option>
+                    <option value='Grape'>Grape</option>
+                    <option value='Minty'>Minty</option>
+                    <option value='Woody'>Woody</option>
+                    <option value='Cheese'>Cheese</option>
+                    <option value='Diesel'>Diesel</option>
+                    <option value='Tropical'>Tropical</option>
+                    <option value='Grapefriut'>Grapefriut</option>
+                    <option value='Nutty'>Nutty</option>
+                    <option value='Lemon'>Lemon</option>
+                    <option value='Berry'>Berry</option>
+                    <option value='Blueberry'>Blueberry</option>
+                    <option value='Ammonia'>Ammonia</option>
+                    <option value='Apple'>Apple</option>
+                    <option value='Rose'>Rose</option>
+                    <option value='Butter'>Butter</option>
+                    <option value='Honey'>Honey</option>
+                    <option value='Tea'>Tea</option>
+                    <option value='Lime'>Lime</option>
+                    <option value='Lavender'>Lavender</option>
+                    <option value='Strawberry'>Strawberry</option>
+                    <option value='Mint'>Mint</option>
+                    <option value='Chestnut'>Chestnut</option>
+                    <option value='Tree Fruit'>Tree Fruit</option>
+                    <option value='Pear'>Pear</option>
+                    <option value='Apricot'>Apricot</option>
+                    <option value='Peach'>Peach</option>
+                    <option value='Blue Cheese'>Blue Cheese</option>
+                    <option value='Menthol'>Menthol</option>
+                    <option value='Coffee'>Coffee</option>
+                    <option value='Tar'>Tar</option>
+                    <option value='Mango'>Mango</option>
+                    <option value='Pineapple'>Pineapple</option>
+                    <option value='Sage'>Sage</option>
+                    <option value='Vanilla'>Vanilla</option>
+                    <option value='Plum'>Plum</option>
+                    <option value='Tobacco'>Tobacco</option>
+                    <option value='Violet'>Violet</option>
+                </select>
+                <input value={this.state.search} onChange={this.handleSearchChange} />
+                <button>Search for strains</button>
+            </form>
+            <div className="list">
+>>>>>>> 216acbffd5cdd47987123fc41fee80e8d322f442
                     {this.state.load &&
                         strains.map((strain, i) =>
                             <div key={i} className="strain">
@@ -251,7 +350,11 @@ export default class SearchPage extends Component {
                                 <p className="recreation"><span className="name-header">Recreational Effect:</span> {strain[1].effects.positive.map(positive => <li>{positive}</li>)}</p>
 
                             </div>
+<<<<<<< HEAD
                         )}
+=======
+                    )}  
+>>>>>>> 216acbffd5cdd47987123fc41fee80e8d322f442
                 </div>
             </div>
         )
