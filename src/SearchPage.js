@@ -39,22 +39,22 @@ export default class SearchPage extends Component {
     handleDescription = async () => {
         const desc = await getStrainDescriptionById();
         this.setState({ description: desc })
-    } 
+    }
 
-    
-    handleRaceChange= async (e) =>  this.setState({ race: e.target.value });
-    
-    handleFlavorChange= async (e) =>  this.setState({ flavor: e.target.value });
-    handlePosChange= async (e) =>  this.setState({ pos: e.target.value });
 
-    handleNegChange= async (e) =>  this.setState({ neg: e.target.value });
+    handleRaceChange = async (e) => this.setState({ race: e.target.value });
 
-    handleMedChange= async (e) =>  this.setState({ med: e.target.value });
-    
+    handleFlavorChange = async (e) => this.setState({ flavor: e.target.value });
+    handlePosChange = async (e) => this.setState({ pos: e.target.value });
+
+    handleNegChange = async (e) => this.setState({ neg: e.target.value });
+
+    handleMedChange = async (e) => this.setState({ med: e.target.value });
+
     handleSearchChange = e => this.setState({ search: e.target.value })
 
     handlefilter = async (name, race, flavor, med, pos) => {
-        const filtered = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].flavors.includes(flavor) && weed[1].effects.medical.includes(med) && weed[1].effects.positive.includes(pos)); 
+        const filtered = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].flavors.includes(flavor) && weed[1].effects.medical.includes(med) && weed[1].effects.positive.includes(pos));
         this.setState({ filterstrain: filtered })
     }
 
@@ -62,8 +62,8 @@ export default class SearchPage extends Component {
         e.preventDefault();
 
         await this.handlefilter(this.state.search, this.state.race, this.state.flavor, this.state.med, this.state.pos)
-    
-        }
+
+    }
 
     // talk to group about desc and img, mainly img
     // work on backend to be able to post(name null??)
@@ -88,7 +88,7 @@ export default class SearchPage extends Component {
 
         return Boolean(isIsFavorites);
     }
-    
+
 
     render() {
         const strains = this.state.filterstrain;
@@ -96,99 +96,99 @@ export default class SearchPage extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit} className="searchbar">
-                <select onChange={this.handleRaceChange}>
-                    <option>Select A Type</option>
-                    <option value='hybrid'>Hybrid</option>
-                    <option value='indica'>Indica</option>
-                    <option value='sativa'>Sativa</option>
-                </select>
-                <select onChange={this.handleFlavorChange}>
-                    <option>FlavorTown options</option>
-                    <option value='Ammonia'>Ammonia</option>
-                    <option value='Apple'>Apple</option>
-                    <option value='Apricot'>Apricot</option>
-                    <option value='Berry'>Berry</option>
-                    <option value='Blue Cheese'>Blue Cheese</option>
-                    <option value='Blueberry'>Blueberry</option>
-                    <option value='Butter'>Butter</option>
-                    <option value='Cheese'>Cheese</option>
-                    <option value='Chemical'>Chemical</option>
-                    <option value='Chestnut'>Chestnut</option>
-                    <option value='Citrus'>Citrus</option>
-                    <option value='Coffee'>Coffee</option>
-                    <option value='Diesel'>Diesel</option>
-                    <option value='Earthy'>Earthy</option>
-                    <option value='Flowery'>Flowery</option>
-                    <option value='Grape'>Grape</option>
-                    <option value='Grapefriut'>Grapefriut</option>
-                    <option value='Honey'>Honey</option>
-                    <option value='Lavender'>Lavender</option>
-                    <option value='Lemon'>Lemon</option>
-                    <option value='Lime'>Lime</option>
-                    <option value='Mango'>Mango</option>
-                    <option value='Menthol'>Menthol</option>
-                    <option value='Mint'>Mint</option>
-                    <option value='Minty'>Minty</option>
-                    <option value='Nutty'>Nutty</option>
-                    <option value='Orange'>Orange</option>
-                    <option value='Peach'>Peach</option>
-                    <option value='Pear'>Pear</option>
-                    <option value='Pepper'>Pepper</option>
-                    <option value='Pine'>Pine</option>
-                    <option value='Pineapple'>Pineapple</option>
-                    <option value='Plum'>Plum</option>
-                    <option value='Pungent'>Pungent</option>
-                    <option value='Rose'>Rose</option>
-                    <option value='Sage'>Sage</option>
-                    <option value='Skunk'>Skunk</option>
-                    <option value='Spicy/Herbal'>Spicy/Herbal</option>
-                    <option value='Strawberry'>Strawberry</option>
-                    <option value='Sweet'>Sweet</option>
-                    <option value='Tar'>Tar</option>
-                    <option value='Tea'>Tea</option>
-                    <option value='Tree Fruit'>Tree Fruit</option>
-                    <option value='Tropical'>Tropical</option>
-                    <option value='Tobacco'>Tobacco</option>
-                    <option value='Woody'>Woody</option>
-                    <option value='Vanilla'>Vanilla</option>
-                    <option value='Violet'>Violet</option>
-                </select>
-                <select onChange={this.handlePosChange}>
-                    <option>Select A Positive</option>
-                    <option value='Aroused'>Aroused</option>
-                    <option value='Creative'>Creative</option>
-                    <option value='Energetic'>Energetic</option>
-                    <option value='Euphoric'>Euphoric</option>
-                    <option value='Focused'>Focused</option>
-                    <option value='Giggly'>Giggly</option>
-                    <option value='Happy'>Happy</option>
-                    <option value='Hungry'>Hungry</option>
-                    <option value='Relaxed'>Relaxed</option>
-                    <option value='Sleepy'>Sleepy</option>
-                    <option value='Tingly'>Tingly</option>
-                    <option value='Uplifted'>Uplifted</option>
-                </select>
-                <select onChange={this.handleMedChange}>
-                    <option>Select Medical</option>
-                    <option value='Cramps'>Cramps</option>
-                    <option value='Depression'>Depression</option>
-                    <option value='Eye Pressure'>Eye Pressure</option>
-                    <option value='Fatigue'>Fatigue</option>
-                    <option value='Headache'>Headache</option>
-                    <option value='Headaches'>Headaches</option>
-                    <option value='Inflammation'>Inflammation</option>
-                    <option value='Insomnia'>Insomnia</option>
-                    <option value='Lack Of Appetite'>Lack Of Appetite</option>
-                    <option value='Muscle Spasms'>Muscle Spasms</option>
-                    <option value='Nausea'>Nausea</option>
-                    <option value='Pain'>Pain</option>
-                    <option value='Spasticity'>Spasticity</option>
-                    <option value='Stress'>Stress</option>
-                </select>
-                <input value={this.state.search} onChange={this.handleSearchChange} />
-                <button>Search for strains</button>
-            </form>
-            <div className="list">
+                    <select onChange={this.handleRaceChange}>
+                        <option>Select A Type</option>
+                        <option value='hybrid'>Hybrid</option>
+                        <option value='indica'>Indica</option>
+                        <option value='sativa'>Sativa</option>
+                    </select>
+                    <select onChange={this.handleFlavorChange}>
+                        <option>FlavorTown options</option>
+                        <option value='Ammonia'>Ammonia</option>
+                        <option value='Apple'>Apple</option>
+                        <option value='Apricot'>Apricot</option>
+                        <option value='Berry'>Berry</option>
+                        <option value='Blue Cheese'>Blue Cheese</option>
+                        <option value='Blueberry'>Blueberry</option>
+                        <option value='Butter'>Butter</option>
+                        <option value='Cheese'>Cheese</option>
+                        <option value='Chemical'>Chemical</option>
+                        <option value='Chestnut'>Chestnut</option>
+                        <option value='Citrus'>Citrus</option>
+                        <option value='Coffee'>Coffee</option>
+                        <option value='Diesel'>Diesel</option>
+                        <option value='Earthy'>Earthy</option>
+                        <option value='Flowery'>Flowery</option>
+                        <option value='Grape'>Grape</option>
+                        <option value='Grapefriut'>Grapefriut</option>
+                        <option value='Honey'>Honey</option>
+                        <option value='Lavender'>Lavender</option>
+                        <option value='Lemon'>Lemon</option>
+                        <option value='Lime'>Lime</option>
+                        <option value='Mango'>Mango</option>
+                        <option value='Menthol'>Menthol</option>
+                        <option value='Mint'>Mint</option>
+                        <option value='Minty'>Minty</option>
+                        <option value='Nutty'>Nutty</option>
+                        <option value='Orange'>Orange</option>
+                        <option value='Peach'>Peach</option>
+                        <option value='Pear'>Pear</option>
+                        <option value='Pepper'>Pepper</option>
+                        <option value='Pine'>Pine</option>
+                        <option value='Pineapple'>Pineapple</option>
+                        <option value='Plum'>Plum</option>
+                        <option value='Pungent'>Pungent</option>
+                        <option value='Rose'>Rose</option>
+                        <option value='Sage'>Sage</option>
+                        <option value='Skunk'>Skunk</option>
+                        <option value='Spicy/Herbal'>Spicy/Herbal</option>
+                        <option value='Strawberry'>Strawberry</option>
+                        <option value='Sweet'>Sweet</option>
+                        <option value='Tar'>Tar</option>
+                        <option value='Tea'>Tea</option>
+                        <option value='Tree Fruit'>Tree Fruit</option>
+                        <option value='Tropical'>Tropical</option>
+                        <option value='Tobacco'>Tobacco</option>
+                        <option value='Woody'>Woody</option>
+                        <option value='Vanilla'>Vanilla</option>
+                        <option value='Violet'>Violet</option>
+                    </select>
+                    <select onChange={this.handlePosChange}>
+                        <option>Select A Positive</option>
+                        <option value='Aroused'>Aroused</option>
+                        <option value='Creative'>Creative</option>
+                        <option value='Energetic'>Energetic</option>
+                        <option value='Euphoric'>Euphoric</option>
+                        <option value='Focused'>Focused</option>
+                        <option value='Giggly'>Giggly</option>
+                        <option value='Happy'>Happy</option>
+                        <option value='Hungry'>Hungry</option>
+                        <option value='Relaxed'>Relaxed</option>
+                        <option value='Sleepy'>Sleepy</option>
+                        <option value='Tingly'>Tingly</option>
+                        <option value='Uplifted'>Uplifted</option>
+                    </select>
+                    <select onChange={this.handleMedChange}>
+                        <option>Select Medical</option>
+                        <option value='Cramps'>Cramps</option>
+                        <option value='Depression'>Depression</option>
+                        <option value='Eye Pressure'>Eye Pressure</option>
+                        <option value='Fatigue'>Fatigue</option>
+                        <option value='Headache'>Headache</option>
+                        <option value='Headaches'>Headaches</option>
+                        <option value='Inflammation'>Inflammation</option>
+                        <option value='Insomnia'>Insomnia</option>
+                        <option value='Lack Of Appetite'>Lack Of Appetite</option>
+                        <option value='Muscle Spasms'>Muscle Spasms</option>
+                        <option value='Nausea'>Nausea</option>
+                        <option value='Pain'>Pain</option>
+                        <option value='Spasticity'>Spasticity</option>
+                        <option value='Stress'>Stress</option>
+                    </select>
+                    <input value={this.state.search} onChange={this.handleSearchChange} />
+                    <button>Search for strains</button>
+                </form>
+                <div className="list">
                     {this.state.load &&
                         strains.map((strain) =>
                             <div key={strain[1].id} className="strain">
@@ -199,8 +199,8 @@ export default class SearchPage extends Component {
                                 <p className="recreation"><span className="name-header">Recreational Effect:</span> {strain[1].effects.positive.map(positive => <li>{positive}</li>)}</p>
                                 <p>{
                                     this.isAFavorite(strain)
-                                    ? '🔥🔥🔥'
-                                    : <button onClick={() => this.handleFavoriteClick(strain, this.state.description, this.state.img)}>Add to favorite</button>
+                                        ? '🔥🔥🔥'
+                                        : <button onClick={() => this.handleFavoriteClick(strain, this.state.description, this.state.img)}>Add to favorite</button>
                                 }
                                 </p>
                             </div>

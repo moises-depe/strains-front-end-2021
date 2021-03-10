@@ -51,7 +51,7 @@ export async function addUserFavorite(newFavorite, token) {
     const response = await request
         .post(`${URL}/api/favorites`)
         .set('Authorization', token)
-        .send( newFavorite )
+        .send(newFavorite)
 
     return response.body;
 }
