@@ -51,7 +51,7 @@ export default class FavoritesPage extends Component {
                             <p>{favorite.description}</p>
                             <hr />
                             <p>Share Favorite:</p>
-                            <p>https://fathomless-fortress-68501.herokuapp.com/favorite/{favorite.id}</p>
+                            <p>https://fathomless-fortress-68501.herokuapp.com/share/{favorite.id}</p>
                             <button onClick={() =>
                                 this.handleDeleteFavorite(favorite.id, this.props.token)}>
                                 Deleter Favorite</button>
