@@ -33,7 +33,7 @@ export default class SearchPage extends Component {
         console.log();
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className="searchbar">
                     <input value={this.state.search} onChange={this.handleSearchChange} />
                     <button>Search for strains</button>
                 </form>
@@ -41,11 +41,11 @@ export default class SearchPage extends Component {
                     {this.state.load &&
                         strains.map((strain, i) =>
                             <div key={i} className="strain">
-                                <p>Name: {strain[0]}</p>
-                                <p>Type: {strain[1].race}</p>
-                                <p>Flavors: {strain[1].flavors.map(flavor => <li>{flavor}</li>)}</p>
-                                <p>Medical: {strain[1].effects.medical.map(medical => <li>{medical}</li>)}</p>
-                                <p>Positive: {strain[1].effects.positive.map(positive => <li>{positive}</li>)}</p>
+                                <p className="name"><span className="name-header">Name:</span> {strain[0]}</p>
+                                <p><span className="name-header">Type:</span> {strain[1].race}</p>
+                                <p className="flavors"><span className="name-header">Flavors:</span> {strain[1].flavors.map(flavor => <li>{flavor}</li>)}</p>
+                                <p className="medical"><span className="name-header">Medical Benefit:</span> {strain[1].effects.medical.map(medical => <li>{medical}</li>)}</p>
+                                <p className="recreation"><span className="name-header">Recreational Effect:</span> {strain[1].effects.positive.map(positive => <li>{positive}</li>)}</p>
 
                             </div>
                         )}
