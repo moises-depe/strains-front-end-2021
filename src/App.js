@@ -48,14 +48,10 @@ export default class App extends React.Component {
     this.handleUserChange(user);
   }
 
-
   //Age verification popup box
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { showPopup: true };
-  // }
+  togglePopup(e) {
+    e.preventDefault();
 
-  togglePopup() {
     this.setState({
       showPopup: !this.state.showPopup
     });
@@ -64,7 +60,6 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-
         {
           this.state.showPopup
             ? <PopUp
