@@ -27,3 +27,7 @@ label {
     display: block;
 }
 
+.signin-head {
+    font-size: 20px;
+    font-weight: bold;
+}
