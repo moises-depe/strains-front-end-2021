@@ -7,7 +7,7 @@ import {
 
 export default class FavoritesPage extends Component {
     state = {
-        favorites =[],
+        favorites: [],
     }
 
     componentDidMount = async () => {
