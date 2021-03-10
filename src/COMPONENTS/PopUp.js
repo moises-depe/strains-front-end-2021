@@ -23,7 +23,7 @@ class PopUp extends React.Component {
                     <div className="pop-up">
                         <form className="form-popup">
                             <div className="inner-pop">
-                                <h3 className="pop-header">Welcome to Strain pickers</h3>
+                                <h3 className="pop-header">Welcome to Strains Selector</h3>
                                 <h4 className="enter-home">You must be 21+ to enter this website</h4>
                                 <input type="checkbox"
                                     name="checkbox"
