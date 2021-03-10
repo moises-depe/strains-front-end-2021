@@ -18,13 +18,15 @@ export default class SignInPage extends React.Component {
     handleSignIn = async (e) => {
         e.preventDefault();
 
+        try {
+            const user = await userSignIn(this.state.email, this.state.password);
 
-        const user = await userSignIn(this.state.email, this.state.password);
+            this.props.handleUserChange(user);
 
-        this.props.handleUserChange(user);
-
-        this.props.history.push('/search');  // user is pushed to seach page after signin
-
+            this.props.history.push('/search');  // user is pushed to seach page after signin
+        } catch (e) {
+            this.setState({ error: e.response.body.error })
+        }
 
     }
 
@@ -34,7 +36,10 @@ export default class SignInPage extends React.Component {
                 <form onSubmit={this.handleSignIn}>
                     <label>
                         <span className="signin-head">Sign In</span>
+                        {
+                            this.state.error && <h3 style={{ color: 'red' }}>{this.state.error}</h3>
 
+                        }
                         <p>
                             Email
                         </p>
