@@ -2,34 +2,26 @@ import React, { Component } from 'react';
 import {
     getAllUserFavorites,
     deleteUserFavorite,
-    addUserFavorite
-} from '../UTILS/ApiUtils.js';
+} from './UTILS/ApiUtils.js';
 
 export default class FavoritesPage extends Component {
     state = {
-        favorites: [],
-        load: false,
+        favorites: []
     }
 
     componentDidMount = async () => {
-        await this.fetchFavorites();
-    }
+        const favorites = await getAllUserFavorites(this.props.token);
 
-    // Fetch Functions
-    fetchFavorites = async () => {
-        const response = await getAllUserFavorites(this.props.token);
-
-        this.setState({
-            favorites: response,
-            load: true,
-        })
+        this.setState({ favorites })
     }
 
     // Event Handlers
-    handleDeleteFavorite = async (id, token) => {
-        const deleted = await deleteUserFavorite(id, token);
+    handleDeleteFavorite = async (id) => {
+        await deleteUserFavorite(id, this.props.token);
 
-        await this.fetchFavorites(token);
+        const favorites = await getAllUserFavorites(this.props.token);
+
+        this.setState({ favorites })
     }
 
     // Loading component with gif from past lab
@@ -37,9 +29,9 @@ export default class FavoritesPage extends Component {
     //component did update linked to prev.state/this.state of favorites
 
     render() {
+        console.log(this.state.favorites);
         return (
             <div>
-                {this.state.load &&
                     <div className="favorites-wrapper">
                         {this.state.favorites.map(favorite =>
                             <div key={favorite.id} className="favorite-div">
@@ -55,12 +47,11 @@ export default class FavoritesPage extends Component {
                                 <hr />
                                 <p>Share Favorite:</p>
                                 <p>https://competent-jones-a33e98.netlify.app/share/{favorite.id}</p>
-                                <button onClick={() =>
-                                    this.handleDeleteFavorite(favorite.id, this.props.token)}>
-                                    Deleter Favorite</button>
+                                <button onClick={() => this.handleDeleteFavorite(favorite.id)}>
+                                    Delete Favorite</button>
                             </div>
                         )}
-                    </div>}
+                    </div>
             </div>
         );
     }
