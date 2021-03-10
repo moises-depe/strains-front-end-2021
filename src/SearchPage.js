@@ -11,7 +11,7 @@ export default class SearchPage extends Component {
         filterstrain: {},
         favorites: [],
         description: '',
-        im4g: 'http://www.placekitten.com/300/300',
+        img: 'http://www.placekitten.com/300/300',
         race: '',
         flavor: '',
         pos: '',
@@ -41,17 +41,10 @@ export default class SearchPage extends Component {
         this.setState({ description: desc })
     } 
 
-    // Race is the only one that works ATM
-    handleFlavorChange= async (e) =>  this.setState({ flavor: e.target.value });
-
-    handleFilterFlavor = async (flavortype) => {
-        
-        const filteredFlavor = await this.state.strains.filter(weed => weed[1].flavors.includes(flavortype));
-        this.setState({ filterstrain: filteredFlavor })
-        }
     
     handleRaceChange= async (e) =>  this.setState({ race: e.target.value });
-
+    
+    handleFlavorChange= async (e) =>  this.setState({ flavor: e.target.value });
     handlePosChange= async (e) =>  this.setState({ pos: e.target.value });
 
     handleNegChange= async (e) =>  this.setState({ neg: e.target.value });
@@ -61,7 +54,7 @@ export default class SearchPage extends Component {
     handleSearchChange = e => this.setState({ search: e.target.value })
 
     handlefilter = async (name, race, flavor, med, pos) => {
-        const filtered = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].flavors.includes(flavor) && weed[1].medical.includes(med) && weed[1].positive.includes(pos)); 
+        const filtered = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].flavors.includes(flavor) && weed[1].effects.medical.includes(med) && weed[1].effects.positive.includes(pos)); 
         this.setState({ filterstrain: filtered })
     }
 
