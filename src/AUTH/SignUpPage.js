@@ -18,13 +18,15 @@ export default class SignUpPage extends React.Component {
     handleSignUp = async (e) => {
         e.preventDefault();
 
+        try {
+            const user = await userSignUp(this.state.email, this.state.password);
 
-        const user = await userSignUp(this.state.email, this.state.password);
+            this.props.handleUserChange(user);
 
-        this.props.handleUserChange(user);
-
-        this.props.history.push('/search');  // user is pushed to seach page after signin
-
+            this.props.history.push('/search');  // user is pushed to seach page after signin
+        } catch (e) {
+            this.setState({ error: e.response.body.error })
+        }
     }
 
     render() {
