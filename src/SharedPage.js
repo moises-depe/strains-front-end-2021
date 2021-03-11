@@ -26,12 +26,12 @@ export default class SharedPage extends Component {
                     <div key={this.state.favorite.id} className="this.state.favorite-div">
                         <h2>{this.state.favorite.name}</h2>
                         <p>{this.state.favorite.race}</p>
-                        <p>Flavors: {this.state.favorite.flavors.join(', ')}</p>
+                        <p>Flavors: {this.state.favorite.flavors[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                         <img src={this.state.favorite.img} alt="strain" />
                         <h3>Effects</h3>
-                        <p>Positive: {this.state.favorite.positive.join(', ')}</p>
-                        <p>Medical: {this.state.favorite.medical.join(', ')}</p>
-                        <p>Negative: {this.state.favorite.negative.join(', ')}</p>
+                        <p>Positive: {this.state.favorite.positive[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
+                        <p>Medical: {this.state.favorite.medical[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
+                        <p>Negative: {this.state.favorite.negative[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                         <p>{this.state.favorite.description}</p>
                         <hr />
                         <p>Share Favorite:</p>
