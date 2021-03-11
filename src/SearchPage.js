@@ -20,6 +20,7 @@ export default class SearchPage extends Component {
         pos: '',
         neg: '',
         med: '',
+        reset: false,
         load: true,
     }
 
@@ -126,6 +127,41 @@ export default class SearchPage extends Component {
         return this.setState({ filterstrain })
         }
     }
+    filterRacePos = async (race, pos) => {
+        if (this.state.race.length === 0 && this.state.pos.length === 0) {return}
+        if (this.state.race.length > 0 && this.state.pos.length > 0) {
+            const filterstrain = await this.state.strains.filter(weed => weed[1].race === race && weed[1].effects.positive.includes(pos))
+            return this.setState({ filterstrain })
+        }
+    }
+    filterRaceMed = async (race, med) => {
+        if (this.state.race.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.race.length > 0 && this.state.med.length > 0) {
+            const filterstrain = await this.state.strains.filter(weed => weed[1].race === race && weed[1].effects.medical.includes(med))
+            return this.setState({ filterstrain })
+        }
+    }
+    filterFlavorMed = async (flavor, med) => {
+        if (this.state.flavor.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.flavor.length > 0 && this.state.med.length > 0) {
+            const filterstrain = await this.state.strains.filter(weed => weed[1].flavors.includes(flavor) && weed[1].effects.medical.includes(med))
+            return this.setState({ filterstrain })
+        }
+    }
+    filterFlavorPos = async (flavor, pos) => {
+        if (this.state.flavor.length === 0 && this.state.pos.length === 0) {return}
+        if (this.state.flavor.length > 0 && this.state.pos.length > 0) {
+            const filterstrain = await this.state.strains.filter(weed => weed[1].flavors.includes(flavor) && weed[1].effects.positive.includes(pos))
+            return this.setState({ filterstrain })
+        }
+    }
+    filterMedPos = async (med, pos) => {
+        if (this.state.med.length === 0 && this.state.pos.length === 0) {return}
+        if (this.state.med.length > 0 && this.state.pos.length > 0) {
+            const filterstrain = await this.state.strains.filter(weed => weed[1].effects.medical.includes(med) && weed[1].effects.positive.includes(pos))
+            return this.setState({ filterstrain })
+        }
+    }
     filterNameRaceFlavor = async (name, race, flavor) => {
         if (this.state.search.length === 0 && this.state.race.length === 0 && this.state.flavor.length === 0) {return}
         if (this.state.search.length > 0 && this.state.race.length > 0 && this.state.flavor.length > 0) {
@@ -169,6 +205,34 @@ export default class SearchPage extends Component {
         return this.setState({ filterstrain })
         }
         }
+    filterRaceFlavorMed = async (race, flavor, med) => {
+        if (this.state.race.length === 0 && this.state.flavor.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.race.length > 0 && this.state.flavor.length > 0 && this.state.med.length > 0){ 
+        const filterstrain = await this.state.strains.filter(weed => weed[1].race === race && weed[1].flavors.includes(flavor) && weed[1].effects.medical.includes(med))
+        return this.setState({ filterstrain })
+        }
+    }
+    filterRaceFlavorPos = async (race, flavor, pos) => {
+        if (this.state.race.length === 0 && this.state.flavor.length === 0 && this.state.pos.length === 0) {return}
+        if (this.state.race.length > 0 && this.state.flavor.length > 0 && this.state.pos.length > 0){ 
+        const filterstrain = await this.state.strains.filter(weed => weed[1].race === race && weed[1].flavors.includes(flavor) && weed[1].effects.positive.includes(pos))
+        return this.setState({ filterstrain })
+        }
+    }
+    filterRaceMedPos = async (race, med, pos) => {
+        if (this.state.race.length === 0 && this.state.pos.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.race.length > 0 && this.state.pos.length > 0 && this.state.med.length > 0){ 
+        const filterstrain = await this.state.strains.filter(weed => weed[1].race === race && weed[1].effects.positive.includes(pos) && weed[1].effects.medical.includes(med))
+        return this.setState({ filterstrain })
+        }
+    }
+    filterFlavorPosMed = async (flavor, pos, med) => {
+        if (this.state.flavor.length === 0 && this.state.pos.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.flavor.length > 0 && this.state.pos.length > 0 && this.state.med.length > 0){ 
+        const filterstrain = await this.state.strains.filter(weed => weed[1].flavors.includes(flavor) && weed[1].effects.positive.includes(pos) && weed[1].effects.medical.includes(med))
+        return this.setState({ filterstrain })
+        }
+    }
     filterNameFlavorPosRace = async (name, flavor, pos, race) => {
         if (this.state.search.length === 0 && this.state.flavor.length === 0 && this.state.pos.length === 0 && this.state.race.length === 0) {return}
         if (this.state.search.length > 0 && this.state.flavor.length > 0 && this.state.pos.length > 0 && this.state.race.length > 0){
@@ -206,7 +270,7 @@ export default class SearchPage extends Component {
         }
     filterAll = async (name, race, flavor, med, pos) => {
         if (this.state.name === 0 && this.state.race.length === 0 && this.state.flavor.length === 0 && this.state.pos.length === 0 && this.state.med.length === 0) {return}
-        if (this.state.name >0 && this.state.race.length > 0 && this.state.flavor.length > 0 && this.state.pos.length > 0 && this.state.med.length > 0){
+        if (this.state.name > 0 && this.state.race.length > 0 && this.state.flavor.length > 0 && this.state.pos.length > 0 && this.state.med.length > 0){
         const filtered = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].flavors.includes(flavor) && weed[1].effects.medical.includes(med) && weed[1].effects.positive.includes(pos));
             
         return this.setState({ filterstrain: filtered })
@@ -224,15 +288,26 @@ export default class SearchPage extends Component {
         await this.filterNameFlavor(name, flavor)
         await this.filterNamePos(name, pos)
         await this.filterNameMed(name, med)
-// add other two element functions 
+        await this.filterRaceFlavor(race, flavor)
+        await this.filterRacePos(race, pos)
+        await this.filterRaceMed(race, med)
+        await this.filterFlavorMed(flavor, med)
+        await this.filterFlavorPos(flavor, pos)
+        await this.filterMedPos(med, pos)
         await this.filterNameRaceFlavor(name, race, flavor)
         await this.filterNameRacePos(name, race, pos)
         await this.filterNameRaceMed(name, race, med)
         await this.filterNameFlavorPos(name, flavor, pos)
         await this.filterNameFlavorMed(name, flavor, med)
         await this.filterNameMedPos(name, med, pos)
+        await this.filterRaceFlavorMed(race, flavor, med)
+        await this.filterRaceFlavorPos(race, flavor, pos)
+        await this.filterRaceMedPos(race, med, pos)
+        await this.filterFlavorPosMed(flavor, pos, med)
         await this.filterNameFlavorPosRace(name, flavor, pos, race)
         await this.filterNameFlavorMedRace(name, flavor, med, race)
+        await this.filterNameFlavorPosMed(name, flavor, pos, med)
+        await this.filterNameRacePosMed(name, race, pos, med)
         await this.filterRaceFlavorPosMed(race, flavor, pos, med)
         await this.filterAll(name, race, flavor, med, pos)
         }
@@ -243,6 +318,13 @@ export default class SearchPage extends Component {
 
         await this.handlefilter(this.state.search, this.state.race, this.state.flavor, this.state.med, this.state.pos)
 
+    }
+
+    handleReset = async () => {
+        this.setState({ reset: true })
+        if(this.state.reset === true) {
+            return this.setState({ filterstrain: this.state.strains})
+        }
     }
 
     // talk to group about desc and img, mainly img
@@ -299,7 +381,6 @@ export default class SearchPage extends Component {
                     <option value='Earthy'>Earthy</option>
                     <option value='Flowery'>Flowery</option>
                     <option value='Grape'>Grape</option>
-                    <option value='Grapefriut'>Grapefriut</option>
                     <option value='Honey'>Honey</option>
                     <option value='Lavender'>Lavender</option>
                     <option value='Lemon'>Lemon</option>
@@ -332,23 +413,8 @@ export default class SearchPage extends Component {
                     <option value='Vanilla'>Vanilla</option>
                     <option value='Violet'>Violet</option>
                 </select>
-                <select onChange={this.handlePosChange}>
-                    <option value=''>Select A Positive</option>
-                    <option value='Aroused'>Aroused</option>
-                    <option value='Creative'>Creative</option>
-                    <option value='Energetic'>Energetic</option>
-                    <option value='Euphoric'>Euphoric</option>
-                    <option value='Focused'>Focused</option>
-                    <option value='Giggly'>Giggly</option>
-                    <option value='Happy'>Happy</option>
-                    <option value='Hungry'>Hungry</option>
-                    <option value='Relaxed'>Relaxed</option>
-                    <option value='Sleepy'>Sleepy</option>
-                    <option value='Tingly'>Tingly</option>
-                    <option value='Uplifted'>Uplifted</option>
-                </select>
                 <select onChange={this.handleMedChange}>
-                    <option value=''>Select Medical</option>
+                    <option value=''>Medical Benefits</option>
                     <option value='Cramps'>Cramps</option>
                     <option value='Depression'>Depression</option>
                     <option value='Eye Pressure'>Eye Pressure</option>
@@ -364,9 +430,25 @@ export default class SearchPage extends Component {
                     <option value='Spasticity'>Spasticity</option>
                     <option value='Stress'>Stress</option>
                 </select>
+                <select onChange={this.handlePosChange}>
+                    <option value=''>Recreational Effects</option>
+                    <option value='Aroused'>Aroused</option>
+                    <option value='Creative'>Creative</option>
+                    <option value='Energetic'>Energetic</option>
+                    <option value='Euphoric'>Euphoric</option>
+                    <option value='Focused'>Focused</option>
+                    <option value='Giggly'>Giggly</option>
+                    <option value='Happy'>Happy</option>
+                    <option value='Hungry'>Hungry</option>
+                    <option value='Relaxed'>Relaxed</option>
+                    <option value='Sleepy'>Sleepy</option>
+                    <option value='Tingly'>Tingly</option>
+                    <option value='Uplifted'>Uplifted</option>
+                </select>
                 <input value={this.state.search} onChange={this.handleSearchChange} />
                 <button>Search for strains</button>
             </form>
+            <button value={this.state.reset} onClick={this.handleReset}>Reset list</button>
             <div className="list">
                     {this.state.load
                         ? <Spinner />
