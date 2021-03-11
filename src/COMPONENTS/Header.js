@@ -1,9 +1,18 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './Header.css';
-
+import { getStoredUser } from '../UTILS/LocalStorageUtils.js';
 
 export default class Header extends React.Component {
+    state = {
+        user: ''
+    }
+
+    componentDidMount() {
+        const user = getStoredUser()
+        this.setState({ user })
+    }
+
     render() {
         return (
             <header>
@@ -16,25 +25,28 @@ export default class Header extends React.Component {
                     {!this.props.token && <>
                         <NavLink exact activeClassName="current-page" to="/signin" className="links">
                             Sign In
-                    </NavLink>
+                        </NavLink>
                         <NavLink exact activeClassName="current-page" to="/signup" className="links">
                             Sign Up
-                    </NavLink>
+                        </NavLink>
                     </>}
                     {this.props.token && <>
                         <NavLink exact activeClassName="current-page" to="/favorites" className="links">
                             Favorites
-                    </NavLink>
+                            </NavLink>
                         <NavLink exact activeClassName="current-page" to="/search" className="links">
                             Search
-                    </NavLink>
+                            </NavLink>
+                        <Link to="/about" className="links">
+                            About Us
+                            </Link>
                         <Link onClick={this.props.handleLogout} className="links">
                             Log Out
-                    </Link>
+                            </Link>
+                        <span className="email-header">
+                            {this.state.user}
+                        </span>
                     </>}
-                    <Link to="/about" className="links">
-                        About Us
-                    </Link>
                 </div>
             </header>
         );
