@@ -48,7 +48,7 @@ export default class SignInPage extends React.Component {
                         <p>
                             Password
                         </p>
-                        <input value={this.state.password} onChange={this.handlePasswordChange} required />
+                        <input type="password" value={this.state.password} onChange={this.handlePasswordChange} required />
                     </label>
                     <button>
                         Sign In
