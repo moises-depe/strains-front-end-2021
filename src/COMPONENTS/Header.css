@@ -42,3 +42,9 @@ header {
     margin-top: 20px;
 
 }
+
+.email-header {
+    font-size: 13px;
+    color: rgb(0, 99, 0);
+    margin-left: 15px;
+}
