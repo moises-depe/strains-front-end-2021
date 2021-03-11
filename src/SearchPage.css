@@ -64,3 +64,15 @@
     margin-top: -50px;
     margin-left: -120px;
 }
+
+.description {
+    font-size: 14px;
+    color: rgb(27, 49, 4);
+    text-align: start;
+    margin-left: 7px;
+}
+
+.share-page {
+    margin: auto;  
+
+}

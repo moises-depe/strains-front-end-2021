@@ -53,9 +53,9 @@ export default class FavoritesPage extends Component {
                                 <p className="recreation"><span className="name-header">Positive:</span> {favorite.positive[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                                 <p className="medical"><span className="name-header">Medical:</span> {favorite.medical[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                                 <p className="negative"><span className="name-header">Negative:</span> {favorite.negative[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
-                                <p>{favorite.description}</p>
+                                <p className="description">{favorite.description}</p>
                                 <hr />
-                                <p>Share Favorite:</p>
+                                <p><span className="name-header">Share Favorite:</span></p>
                                 <p>https://competent-jones-a33e98.netlify.app/share/{favorite.id}</p>
                                 <button onClick={() => this.handleDeleteFavorite(favorite.id)}>
                                     Delete Favorite</button>

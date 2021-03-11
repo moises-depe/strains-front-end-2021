@@ -21,7 +21,7 @@ export default class SharedPage extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="share-page">
                 {this.state.load &&
                     <div key={this.state.favorite.id} className="strain">
                         <p className="name">{this.state.favorite.name}</p>
@@ -31,7 +31,7 @@ export default class SharedPage extends Component {
                         <p className="recreation"><span className="name-header">Positive:</span> {this.state.favorite.positive[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                         <p className="medical"><span className="name-header">Medical:</span> {this.state.favorite.medical[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                         <p className="negative"><span className="name-header">Negative:</span> {this.state.favorite.negative[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
-                        <p>{this.state.favorite.description}</p>
+                        <p className="description">{this.state.favorite.description}</p>
                         <hr />
                         <p>Share Favorite:</p>
                         <p>https://competent-jones-a33e98.netlify.app/share/{this.state.favorite.id}</p>
