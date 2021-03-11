@@ -80,7 +80,10 @@
     max-width: 200px;
     background-image: linear-gradient(rgb(149, 192, 228), rgb(218, 228, 236));
     border-radius: 7px;
+}
+
+.share-page-centering {
+    margin: auto;  
     display: flex;
     justify-content: center;
-
 }
