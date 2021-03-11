@@ -70,13 +70,10 @@ export default class FavoritesPage extends Component {
                                 <hr />
                                 <p><span className="name-header">Share Favorite:</span></p>
                                 <p>https://competent-jones-a33e98.netlify.app/share/{favorite.id}</p>
-
-                                <div className="share-buttons">
-                                    <EmailShareButton url={`https://competent-jones-a33e98.netlify.app/share/{favorite.id}`}><EmailIcon size={32} round={true} /></EmailShareButton>
-                                    <FacebookShareButton url={`https://competent-jones-a33e98.netlify.app/share/{favorite.id}`}><FacebookIcon size={32} round={true} /></FacebookShareButton>
-                                    <RedditShareButton url={`https://competent-jones-a33e98.netlify.app/share/{favorite.id}`}><RedditIcon size={32} round={true} /></RedditShareButton>
-                                    <TwitterShareButton url={`https://competent-jones-a33e98.netlify.app/share/{favorite.id}`}><TwitterIcon size={32} round={true} /></TwitterShareButton>
-                                </div>
+                                <EmailShareButton url={`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}><EmailIcon size={32} round={true} /></EmailShareButton>
+                                <FacebookShareButton url={`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}><FacebookIcon size={32} round={true} /></FacebookShareButton>
+                                <RedditShareButton url={`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}><RedditIcon size={32} round={true} /></RedditShareButton>
+                                <TwitterShareButton url={`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}><TwitterIcon size={32} round={true} /></TwitterShareButton>
                                 <p></p>
                                 <button onClick={() => this.handleDeleteFavorite(favorite.id)}>
                                     Delete Favorite</button>
