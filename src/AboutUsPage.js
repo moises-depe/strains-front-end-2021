@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './UTILS/AboutUsPage.css';
+import './AboutUsPage.css';
 
 
 export default class AboutUsPage extends Component {
@@ -12,6 +12,7 @@ export default class AboutUsPage extends Component {
                 <div className="about-us-page"></div>
                 <div className="about-info">
                     <h3>Brandon Perard</h3>
+                    <div className='b-rad-image about-image'></div>
                     <p className="about-paragraph">brandon ........</p>
                 </div>
                 <div className="about-link">
@@ -21,6 +22,7 @@ export default class AboutUsPage extends Component {
                 </div>
                 <div className="about-info">
                     <h3>Casey Warren</h3>
+                    <div className='casey-image about-image'></div>
                     <p className="about-paragraph">Casey ........</p>
                 </div>
                 <div className="about-link">
@@ -30,6 +32,7 @@ export default class AboutUsPage extends Component {
                 </div>
                 <div className="about-info">
                     <h3>Moises Depena</h3>
+                    <div className='moises-image about-image'></div>
                     <p className="about-paragraph">Moises ........</p>
                 </div>
                 <div className="about-link">
@@ -39,6 +42,7 @@ export default class AboutUsPage extends Component {
                 </div>
                 <div className="about-info">
                     <h3>Parker Sequeira</h3>
+                    <div className='parker-image about-image'></div>
                     <p className="about-paragraph">Parker ........</p>
                 </div>
                 <div className="about-link">
