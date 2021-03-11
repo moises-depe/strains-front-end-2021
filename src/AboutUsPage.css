@@ -1,0 +1,33 @@
+.li-icon {
+    background-image: url('./ASSETS/link-icon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+} 
+
+.about-image {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.b-rad-image {
+    background-image: url('./ASSETS/b-rad.jpg');
+}
+
+.casey-image {
+    background-image: url('./ASSETS/casey.png');
+}
+
+.moises-image {
+    background-image: url('./ASSETS/mo.jpg');
+}
+
+.parker-image {
+    background-image: url('./ASSETS/parker.jpg');
+}
