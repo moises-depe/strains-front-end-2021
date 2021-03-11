@@ -34,7 +34,7 @@ export default class HomePage extends Component {
                         <br/><br/>
                 </div>
                 <br/><br/><br/><br/>
-                <img className='classification' src='./weed.png' alt=''></img>
+                <img className='classification' src='./weed.png' alt='weed classification picture'></img>
             </div>
         )
     }
