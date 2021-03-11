@@ -1,24 +1,3 @@
-.strain {
-    padding: 10px;
-    border: solid 1px black;
-    margin: 5px;
-    max-width: 200px;
-    background-image: linear-gradient(rgb(149, 192, 228), rgb(218, 228, 236));
-    border-radius: 7px;
-}
-
-.searchbar {
-    margin-bottom: 20px;
-}
-
-.list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    text-align: center;
-    font-family: 'Noto Sans JP', sans-serif;
-}
-
 .name-header {
     font-size: 15px;
     color: rgb(63, 62, 63);
@@ -36,8 +15,8 @@
     color: rgb(170, 112, 4);
 }
 
-.medical {
-    color: green;
+.medical2 {
+    color: rgb(0, 59, 0);
 }
 
 .recreation {
@@ -61,4 +40,21 @@
     color: rgb(27, 49, 4);
     text-align: start;
     margin-left: 7px;
+}
+
+.share-page {
+    margin: auto;  
+    width: 620px;
+    padding: 10px;
+    border: solid 1px black;
+    margin: 5px;
+    max-width: 200px;
+    background-image: linear-gradient(rgba(16, 112, 32, 0.842), rgb(218, 228, 236));
+    border-radius: 7px;
+}
+
+.share-page-centering {
+    margin: auto;  
+    display: flex;
+    justify-content: center;
 }
