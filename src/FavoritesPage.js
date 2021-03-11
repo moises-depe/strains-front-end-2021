@@ -5,7 +5,6 @@ import {
 } from './UTILS/ApiUtils.js';
 import './FavoritesPage.css';
 
-import './SearchPage.css';
 import {
     EmailShareButton,
     FacebookShareButton,
