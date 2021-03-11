@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { getAllStrains, getAllUserFavorites, addUserFavorite, getStrainByName, getStrainDescriptionById } from './UTILS/ApiUtils.js';
 import './SearchPage.css';
 
+import Spinner from './Spinner.js';
+
 
 
 export default class SearchPage extends Component {
@@ -22,6 +24,7 @@ export default class SearchPage extends Component {
 
 
     componentDidMount = async () => {
+
         const data = await getAllStrains();
         await this.fetchFavorites();
 
@@ -106,7 +109,7 @@ export default class SearchPage extends Component {
         const strains = this.state.strains;
         console.log(strains);
         return (
-            <div>
+            <div className="search-main">
                 <form onSubmit={this.handleSubmit} className="searchbar">
                     <select onChange={this.handleRaceChange}>
                         <option value='indica'>Indica</option>
@@ -165,7 +168,7 @@ export default class SearchPage extends Component {
                     </select>
                     <input value={this.state.search} onChange={this.handleSearchChange} />
                     <button>Search for strains</button>
-                </form >
+                </form>
                 <div className="list">
                     {this.state.load &&
                         strains.map((strain, i) =>
@@ -179,7 +182,7 @@ export default class SearchPage extends Component {
                         )
                     }
                 </div>
-            </div >
+            </div>
         )
     }
 
