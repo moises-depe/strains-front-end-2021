@@ -21,7 +21,7 @@ export default class SharedPage extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="share-page-centering">
                 {this.state.load &&
                     <div key={this.state.favorite.id} className="share-page">
                         <p className="name">{this.state.favorite.name}</p>
