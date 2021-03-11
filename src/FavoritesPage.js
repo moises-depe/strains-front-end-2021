@@ -3,7 +3,7 @@ import {
     getAllUserFavorites,
     deleteUserFavorite,
 } from './UTILS/ApiUtils.js';
-import './SearchPage.css';
+import './FavoritesPage.css';
 
 
 export default class FavoritesPage extends Component {
@@ -40,14 +40,14 @@ export default class FavoritesPage extends Component {
         console.log(this.state.favorites);
         return (
             <div>
-                <span className="favorites-title">Favorites</span>
+                <span className="favorites-title2">Favorites</span>
                 {this.state.load &&
-                    <div className="list">
+                    <div className="list2">
                         {this.state.favorites.map(favorite =>
-                            <div key={favorite.id} className="strain">
+                            <div key={favorite.id} className="strain2">
                                 <p className="name">{favorite.name}</p>
                                 <p><span className="name-header">Type:</span> {favorite.race}</p>
-                                <p className="flavors"><span className="name-header">Flavors:</span> {favorite.flavors[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
+                                <p className="flavors2"><span className="name-header">Flavors:</span> {favorite.flavors[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
 
                                 <h3>Effects</h3>
                                 <p className="recreation"><span className="name-header">Positive:</span> {favorite.positive[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
@@ -62,7 +62,7 @@ export default class FavoritesPage extends Component {
                             </div>
                         )}
                     </div>
-                    }
+                }
             </div>
         );
     }
