@@ -27,12 +27,14 @@ export default class HomePage extends Component {
                         Hybrids of the two plants create strains that combine benefits of both classifications and are directly influenced by the individual genetics of the plant. The resulting amount of choice is incredible. Hybrid strains   fall into the following categories:
                         <br/><br/>
                         Indica Dominant- Excellent for treating daytime pain.
-                        Even- Strains that have an equal between a cerebral and body relaxing high.
+                        <br/>
+                        Hybrids- Strains that have an equal between a cerebral and body relaxing high.
+                        <br/>
                         Sativa Dominant- Energetic strains that boost focus and creativity without putting you to sleep.
                         <br/><br/>
                 </div>
                 <br/><br/><br/><br/>
-                <img className='classification' src='./weed.png' alt=''></img>
+                <img className='classification' src='./weed.png' alt='weed classification picture'></img>
             </div>
         )
     }

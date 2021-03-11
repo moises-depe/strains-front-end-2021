@@ -45,7 +45,7 @@ export default class Header extends React.Component {
                             Log Out
                             </Link>
                         <span className="email-header">
-                            {this.state.user}
+                            logged in as: {this.state.user}
                         </span>
                     </>}
                 </div>
