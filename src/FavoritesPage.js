@@ -62,7 +62,7 @@ export default class FavoritesPage extends Component {
                             </div>
                         )}
                     </div>
-                    }
+                }
             </div>
         );
     }
