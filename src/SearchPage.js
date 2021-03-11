@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { getAllStrains, getAllUserFavorites, addUserFavorite, getStrainDescriptionById } from './UTILS/ApiUtils.js';
 import './SearchPage.css';
 
+import Spinner from './Spinner.js';
+
 
 
 export default class SearchPage extends Component {
     state = {
 
-        strains: {},
+        strains: [],
         filterstrain: {},
         favorites: [],
         description: '',
@@ -17,17 +19,18 @@ export default class SearchPage extends Component {
         pos: '',
         neg: '',
         med: '',
-        load: false,
+        load: true,
     }
 
     componentDidMount = async () => {
+
         const data = await getAllStrains();
         await this.fetchFavorites();
 
         this.setState({
             strains: Object.entries(data),
             filterstrain: Object.entries(data),
-            load: true,
+            load: false,
         })
     }
 
@@ -94,7 +97,7 @@ export default class SearchPage extends Component {
         const strains = this.state.filterstrain;
         console.log(this.state.favorites);
         return (
-            <div>
+            <div className="search-main">
                 <form onSubmit={this.handleSubmit} className="searchbar">
                     <select onChange={this.handleRaceChange}>
                         <option>Select A Type</option>
@@ -189,8 +192,9 @@ export default class SearchPage extends Component {
                     <button>Search for strains</button>
                 </form>
                 <div className="list">
-                    {this.state.load &&
-                        strains.map((strain) =>
+                    {this.state.load
+                        ? <Spinner />
+                        : strains.map((strain) =>
                             <div key={strain[1].id} className="strain">
                                 <p className="name"> {strain[0]}</p>
                                 <p><span className="name-header">Type:</span> {strain[1].race}</p>
