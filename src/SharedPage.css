@@ -44,11 +44,10 @@
 
 .share-page {
     margin: auto;  
-    width: 620px;
     padding: 10px;
     border: solid 1px black;
     margin: 5px;
-    max-width: 200px;
+    max-width: 460px;
     background-image: linear-gradient(rgba(16, 112, 32, 0.842), rgb(218, 228, 236));
     border-radius: 7px;
 }
