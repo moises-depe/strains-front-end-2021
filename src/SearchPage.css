@@ -1,9 +1,12 @@
+.search-main {
+    
+}
+
 .strain {
     padding: 10px;
     border: solid 1px black;
     margin: 5px;
     max-width: 200px;
-    /* background-color: rgb(170, 224, 224); */
     background-image: linear-gradient(rgb(149, 192, 228), rgb(218, 228, 236));
     border-radius: 7px;
 }
@@ -42,4 +45,22 @@
 
 .recreation {
     color: rgb(4, 71, 158);
+}
+
+.negative {
+    color: brown;
+}
+
+.favorites-title {
+    font-size: 30px;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-bottom: 90px;
+}
+
+.spinner {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -120px;
 }

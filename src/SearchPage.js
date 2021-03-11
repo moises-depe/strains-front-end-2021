@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { getAllStrains, getAllUserFavorites, addUserFavorite, getStrainDescriptionById } from './UTILS/ApiUtils.js';
 import './SearchPage.css';
 
+import Spinner from './Spinner.js';
+
 
 
 export default class SearchPage extends Component {
     state = {
 
-        strains: {},
+        strains: [],
         filterstrain: {},
         favorites: [],
         description: '',
@@ -18,17 +20,18 @@ export default class SearchPage extends Component {
         pos: '',
         neg: '',
         med: '',
-        load: false,
+        load: true,
     }
 
     componentDidMount = async () => {
+
         const data = await getAllStrains();
         await this.fetchFavorites();
 
         this.setState({
             strains: Object.entries(data),
             filterstrain: Object.entries(data),
-            load: true,
+            load: false,
         })
     }
 
@@ -40,7 +43,10 @@ export default class SearchPage extends Component {
     handleDescription = async () => {
         const desc = await getStrainDescriptionById();
         this.setState({ description: desc })
-    } 
+    }
+
+
+    handleRaceChange = async (e) => this.setState({ race: e.target.value });
 
     
     handleRaceChange= async (e) =>  this.setState({ race: e.target.value });
@@ -236,8 +242,8 @@ export default class SearchPage extends Component {
         e.preventDefault();
 
         await this.handlefilter(this.state.search, this.state.race, this.state.flavor, this.state.med, this.state.pos)
-    
-        }
+
+    }
 
     // talk to group about desc and img, mainly img
     handleFavoriteClick = async (rawStrain, rawDesc, rawImg) => {
@@ -261,13 +267,13 @@ export default class SearchPage extends Component {
 
         return Boolean(isIsFavorites);
     }
-    
+
 
     render() {
         const strains = this.state.filterstrain;
         console.log(this.state.filterstrain);
         return (
-            <div>
+            <div className="search-main">
                 <form onSubmit={this.handleSubmit} className="searchbar">
                 <select onChange={this.handleRaceChange}>
                     <option value=''>Select A Type</option>
@@ -362,8 +368,9 @@ export default class SearchPage extends Component {
                 <button>Search for strains</button>
             </form>
             <div className="list">
-                    {this.state.load &&
-                        strains.map((strain) =>
+                    {this.state.load
+                        ? <Spinner />
+                        : strains.map((strain) =>
                             <div key={strain[1].id} className="strain">
                                 <p className="name"> {strain[0]}</p>
                                 <p><span className="name-header">Type:</span> {strain[1].race}</p>
@@ -372,8 +379,8 @@ export default class SearchPage extends Component {
                                 <p className="recreation"><span className="name-header">Recreational Effect:</span> {strain[1].effects.positive.map(positive => <li>{positive}</li>)}</p>
                                 <p>{
                                     this.isAFavorite(strain)
-                                    ? '🔥🔥🔥'
-                                    : <button onClick={() => this.handleFavoriteClick(strain, this.state.description, this.state.img)}>Add to favorite</button>
+                                        ? '🔥🔥🔥'
+                                        : <button onClick={() => this.handleFavoriteClick(strain, this.state.description, this.state.img)}>Add to favorite</button>
                                 }
                                 </p>
                             </div>
