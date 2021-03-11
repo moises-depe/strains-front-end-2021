@@ -53,7 +53,7 @@ export default class AboutUsPage extends Component {
                         <p className="about-name">Parker Sequeira</p>
                         <p className="profession">Software Developer</p>
                         <div className='parker-image about-image'></div>
-                        <p className="about-paragraph">Parker ........</p>
+                        <p className="about-paragraph">I am a Full-Stack Developer from Salem OR. </p>
                         <div className="about-link">
                             <a href="https://www.linkedin.com/in/parker-sequeira/" target="_blank" rel="noopener noreferrer">
                                 <div className='li-icon'></div>

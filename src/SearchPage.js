@@ -363,7 +363,7 @@ export default class SearchPage extends Component {
             <div className="search-main">
                 <form onSubmit={this.handleSubmit} className="searchbar">
                 <select onChange={this.handleRaceChange}>
-                    <option value=''>Select A Type</option>
+                    <option value=''>Classification</option>
                     <option value='hybrid'>Hybrid</option>
                     <option value='indica'>Indica</option>
                     <option value='sativa'>Sativa</option>

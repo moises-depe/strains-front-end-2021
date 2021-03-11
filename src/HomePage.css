@@ -89,3 +89,7 @@ img {
     box-shadow: 0 0 30px rgb(8, 87, 14);
 }
 
+.classification {
+    height: 900px;
+    width: 900px;
+}
