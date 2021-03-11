@@ -44,9 +44,11 @@ export default class FavoritesPage extends Component {
         this.setState({ favorites })
     }
 
-    // Loading component with gif from past lab
-    //
-    //component did update linked to prev.state/this.state of favorites
+    handleCopyClick = (favorite) => {
+        const sharedLink = document.querySelector(`a.${favorite.race}${favorite.id}`).innerText;
+        navigator.clipboard.writeText(sharedLink);
+        alert(`Link copied to clipboard. Sharing is caring!`);
+    }
 
     render() {
         console.log(this.state.favorites);
@@ -67,15 +69,20 @@ export default class FavoritesPage extends Component {
                                 <p className="negative"><span className="name-header">Negative:</span> {favorite.negative[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                                 <p className="description"><span className="name-header">Description: </span>{favorite.description}</p>
                                 <hr />
-                                <p><span className="name-header">Share Favorite:</span></p>
-                                <p>https://competent-jones-a33e98.netlify.app/share/{favorite.id}</p>
+                                <div className="copy-div">
+                                    <p>Link to Share Favorite:</p>
+                                    <a className={`${favorite.race}${favorite.id}`} href={`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}>{`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}</a>
+                                    <button onClick={() => {
+                                        this.handleCopyClick(favorite)
+                                    }
+                                    }>Copy to Clipboard</button>
+                                </div>
                                 <div>
                                     <EmailShareButton url={`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}><EmailIcon size={32} round={true} /></EmailShareButton>
                                     <FacebookShareButton url={`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}><FacebookIcon size={32} round={true} /></FacebookShareButton>
                                     <RedditShareButton url={`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}><RedditIcon size={32} round={true} /></RedditShareButton>
                                     <TwitterShareButton url={`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}><TwitterIcon size={32} round={true} /></TwitterShareButton>
                                 </div>
-                                <p></p>
                                 <button onClick={() => this.handleDeleteFavorite(favorite.id)}>
                                     Delete Favorite</button>
                             </div>
