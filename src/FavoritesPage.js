@@ -39,7 +39,7 @@ export default class FavoritesPage extends Component {
     render() {
         console.log(this.state.favorites);
         return (
-            <div >
+            <div>
                 <span className="favorites-title">Favorites</span>
                 {this.state.load &&
                     <div className="list">
@@ -61,7 +61,8 @@ export default class FavoritesPage extends Component {
                                     Delete Favorite</button>
                             </div>
                         )}
-                    </div>}
+                    </div>
+                    }
             </div>
         );
     }
