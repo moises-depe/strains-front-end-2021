@@ -49,11 +49,11 @@ export default class FavoritesPage extends Component {
                                 <p><span className="name-header">Type:</span> {favorite.race}</p>
                                 <p className="flavors2"><span className="name-header">Flavors:</span> {favorite.flavors[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
 
-                                <h3>Effects</h3>
+                                <h3 className="effects-header">Effects</h3>
                                 <p className="recreation"><span className="name-header">Positive:</span> {favorite.positive[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                                 <p className="medical"><span className="name-header">Medical:</span> {favorite.medical[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                                 <p className="negative"><span className="name-header">Negative:</span> {favorite.negative[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
-                                <p className="description">{favorite.description}</p>
+                                <p className="description"><span className="name-header">Description: </span>{favorite.description}</p>
                                 <hr />
                                 <p><span className="name-header">Share Favorite:</span></p>
                                 <p>https://competent-jones-a33e98.netlify.app/share/{favorite.id}</p>

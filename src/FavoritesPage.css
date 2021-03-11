@@ -5,6 +5,9 @@
     max-width: 200px;
     background-image: linear-gradient(rgba(241, 135, 13, 0.842), rgb(218, 228, 236));
     border-radius: 7px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
 }
 
 .searchbar {
@@ -83,4 +86,8 @@
     margin: auto;  
     display: flex;
     justify-content: center;
+}
+
+.effects-header {
+    margin-bottom: -15px;
 }
