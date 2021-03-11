@@ -91,3 +91,11 @@
 .effects-header {
     margin-bottom: -15px;
 }
+
+
+.share-buttons {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-bottom: -15px;
+}
