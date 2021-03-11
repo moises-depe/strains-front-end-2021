@@ -94,8 +94,9 @@
 
 
 .share-buttons {
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    margin-bottom: -15px;
+    margin-bottom: 10px;
+}
+
+.copy-div {
+    margin-bottom: 15px;
 }
