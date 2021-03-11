@@ -2,34 +2,34 @@ import React, { Component } from 'react';
 import {
     getAllUserFavorites,
     deleteUserFavorite,
-    addUserFavorite
-} from '../UTILS/ApiUtils.js';
+} from './UTILS/ApiUtils.js';
+import './SearchPage.css';
+
 
 export default class FavoritesPage extends Component {
     state = {
-        favorites =[],
+        favorites: '',
         load: false,
     }
 
     componentDidMount = async () => {
-        await this.fetchFavorites();
-    }
-
-    // Fetch Functions
-    fetchFavorites = async () => {
-        const response = await getAllUserFavorites(this.props.token);
+        const favorites = await getAllUserFavorites(this.props.token);
 
         this.setState({
-            favorites: response,
+            favorites: favorites,
             load: true,
         })
+        console.log(this.state.favorites)
+
     }
 
     // Event Handlers
-    handleDeleteFavorite = async (id, token) => {
-        const deleted = await deleteUserFavorite(id, token);
+    handleDeleteFavorite = async (id) => {
+        await deleteUserFavorite(id, this.props.token);
 
-        await this.fetchFavorites(token);
+        const favorites = await getAllUserFavorites(this.props.token);
+
+        this.setState({ favorites })
     }
 
     // Loading component with gif from past lab
@@ -37,27 +37,28 @@ export default class FavoritesPage extends Component {
     //component did update linked to prev.state/this.state of favorites
 
     render() {
+        console.log(this.state.favorites);
         return (
-            <div>
+            <div >
+                <span className="favorites-title">Favorites</span>
                 {this.state.load &&
-                    <div className="favorites-wrapper">
+                    <div className="list">
                         {this.state.favorites.map(favorite =>
-                            <div key={favorite.id} className="favorite-div">
-                                <h2>{favorite.name}</h2>
-                                <p>{favorite.race}</p>
-                                <p>Flavors: {favorite.flavors.join(', ')}</p>
-                                <img src={favorite.img} alt="strain" />
+                            <div key={favorite.id} className="strain">
+                                <p className="name">{favorite.name}</p>
+                                <p><span className="name-header">Type:</span> {favorite.race}</p>
+                                <p className="flavors"><span className="name-header">Flavors:</span> {favorite.flavors[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
+
                                 <h3>Effects</h3>
-                                <p>Positive: {favorite.positive.join(', ')}</p>
-                                <p>Medical: {favorite.medical.join(', ')}</p>
-                                <p>Negative: {favorite.negative.join(', ')}</p>
+                                <p className="recreation"><span className="name-header">Positive:</span> {favorite.positive[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
+                                <p className="medical"><span className="name-header">Medical:</span> {favorite.medical[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
+                                <p className="negative"><span className="name-header">Negative:</span> {favorite.negative[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                                 <p>{favorite.description}</p>
                                 <hr />
                                 <p>Share Favorite:</p>
                                 <p>https://competent-jones-a33e98.netlify.app/share/{favorite.id}</p>
-                                <button onClick={() =>
-                                    this.handleDeleteFavorite(favorite.id, this.props.token)}>
-                                    Deleter Favorite</button>
+                                <button onClick={() => this.handleDeleteFavorite(favorite.id)}>
+                                    Delete Favorite</button>
                             </div>
                         )}
                     </div>}
