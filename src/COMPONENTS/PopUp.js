@@ -35,7 +35,7 @@ class PopUp extends React.Component {
                                 <br></br>
 
                                 <button className="submit-button" onClick={this.props.closePopup} disabled={this.state.checkBox} >Submit</button>
-                                <div className="terms-conditions">By selecting 21+ you are indicating that you have read and agree to the Terms and Conditions and Privacy Policy</div>
+                                <div className="terms-conditions">By hitting submit, you are agreeing that you are of legal age</div>
                             </div>
                         </form>
                     </div>
