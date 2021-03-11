@@ -28,7 +28,7 @@ export default class HomePage extends Component {
                         <br/><br/>
                         Indica Dominant- Excellent for treating daytime pain.
                         <br/>
-                        Even- Strains that have an equal between a cerebral and body relaxing high.
+                        Hybrids- Strains that have an equal between a cerebral and body relaxing high.
                         <br/>
                         Sativa Dominant- Energetic strains that boost focus and creativity without putting you to sleep.
                         <br/><br/>
