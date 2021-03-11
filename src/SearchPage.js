@@ -12,6 +12,7 @@ export default class SearchPage extends Component {
         favorites: [],
         description: '',
         img: 'http://www.placekitten.com/300/300',
+        search: '',
         race: '',
         flavor: '',
         pos: '',
@@ -43,20 +44,193 @@ export default class SearchPage extends Component {
 
     
     handleRaceChange= async (e) =>  this.setState({ race: e.target.value });
-    
     handleFlavorChange= async (e) =>  this.setState({ flavor: e.target.value });
     handlePosChange= async (e) =>  this.setState({ pos: e.target.value });
-
     handleNegChange= async (e) =>  this.setState({ neg: e.target.value });
-
     handleMedChange= async (e) =>  this.setState({ med: e.target.value });
-    
     handleSearchChange = e => this.setState({ search: e.target.value })
 
-    handlefilter = async (name, race, flavor, med, pos) => {
-        const filtered = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].flavors.includes(flavor) && weed[1].effects.medical.includes(med) && weed[1].effects.positive.includes(pos)); 
-        this.setState({ filterstrain: filtered })
+    filterName = async (name) => {
+        if (!this.state.search) { return }
+
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name))
+        this.setState({ filterstrain }) 
     }
+    filterRace = async (race) => {
+    if (!this.state.race) { return }
+        
+        const filterstrain = await this.state.strains.filter(weed => weed[1].race === race)
+        this.setState({ filterstrain })
+        
+    }
+    filterFlavor = async (flavor) => {
+        if (!this.state.flavor ) { return }
+
+        const filterstrain = await this.state.strains.filter(weed => weed[1].flavors.includes(flavor))
+        this.setState({ filterstrain })
+        
+    }
+    filterPos = async (pos) => {
+        if (!this.state.pos ) { return }
+
+        const filterstrain = await this.state.strains.filter(weed => weed[1].effects.positive.includes(pos))
+        this.setState({ filterstrain })
+            
+        }
+    filterMed = async (med) => {
+        if (!this.state.med ) { return }
+
+        const filterstrain = await this.state.strains.filter(weed => weed[1].effects.medical.includes(med))
+        this.setState({ filterstrain })
+            
+        }
+
+    filterNameRace = async (name, race) => {
+        if (this.state.search.length === 0 && this.state.race.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.race.length > 0){
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race)
+        return this.setState({ filterstrain })
+        }
+    }
+    filterNameFlavor = async (name, flavor) => {
+        if (this.state.search.length === 0 && this.state.flavor.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.flavor.length > 0){
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].flavors.includes(flavor))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterNamePos = async (name, pos) => {
+        if (this.state.search.length === 0 && this.state.pos.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.pos.length > 0) {  
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].effects.positive.includes(pos))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterNameMed = async (name, med) => {
+        if (this.state.search.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.med.length > 0) {
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].effects.medical.includes(med))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterRaceFlavor = async (race, flavor) => {
+        if (this.state.race.length === 0 && this.state.flavor.length === 0) {return}
+        if (this.state.race.length > 0 && this.state.flavor.length > 0) {
+        const filterstrain = await this.state.strains.filter(weed => weed[1].race === race && weed[1].flavors.includes(flavor))
+        return this.setState({ filterstrain })
+        }
+    }
+    filterNameRaceFlavor = async (name, race, flavor) => {
+        if (this.state.search.length === 0 && this.state.race.length === 0 && this.state.flavor.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.race.length > 0 && this.state.flavor.length > 0) {
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].flavors.includes(flavor))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterNameRacePos = async (name, race, pos) => {
+        if (this.state.search.length === 0 && this.state.race.length === 0 && this.state.pos.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.race.length > 0 && this.state.pos.length > 0) {
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].effects.positive.includes(pos))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterNameRaceMed = async (name, race, med) => {
+        if (this.state.search.length === 0 && this.state.race.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.race.length > 0 && this.state.med.length > 0){
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].effects.medical.includes(med))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterNameFlavorPos = async (name, flavor, pos) => {
+        if (this.state.search.length === 0 && this.state.flavor.length === 0 && this.state.pos.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.flavor.length > 0 && this.state.pos.length > 0){
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].flavors.includes(flavor) && weed[1].effects.positive.includes(pos))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterNameFlavorMed = async (name, flavor, med) => {
+        if (this.state.search.length === 0 && this.state.flavor.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.flavor.length > 0 && this.state.med.length > 0) {
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].flavors.includes(flavor) && weed[1].effects.medical.includes(med))
+        return this.setState({ filterstrain })
+        }
+        }
+
+    filterNameMedPos = async (name, med, pos) => {
+        if (this.state.search.length === 0 && this.state.med.length === 0 && this.state.pos.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.med.length > 0 && this.state.pos.length > 0){ 
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].medical.includes(med) && weed[1].effects.positive.includes(pos))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterNameFlavorPosRace = async (name, flavor, pos, race) => {
+        if (this.state.search.length === 0 && this.state.flavor.length === 0 && this.state.pos.length === 0 && this.state.race.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.flavor.length > 0 && this.state.pos.length > 0 && this.state.race.length > 0){
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].flavors.includes(flavor) && weed[1].effects.positive.includes(pos) && weed[1].race === race)
+        return this.setState({ filterstrain })
+        }
+    }
+    filterNameFlavorMedRace = async (name, flavor, med, race) => {
+        if (this.state.search.length === 0 && this.state.flavor.length === 0 && this.state.med.length === 0 && this.state.race.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.flavor.length > 0 && this.state.med.length > 0 && this.state.race.length > 0){
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].flavors.includes(flavor) && weed[1].effects.medical.includes(med) && weed[1].race === race)
+        return this.setState({ filterstrain })
+        }
+        }
+    filterNameRacePosMed = async (name, race, pos, med) => { 
+        if (this.state.search.length === 0 && this.state.race.length === 0 && this.state.pos.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.race.length > 0 && this.state.pos.length > 0 && this.state.med.length > 0){
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].effects.positive.includes(pos) && weed[1].effects.medical.includes(med))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterNameFlavorPosMed = async (name, flavor, pos, med) => {
+        if (this.state.search.length === 0 && this.state.flavor.length === 0 && this.state.pos.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.search.length > 0 && this.state.flavor.length > 0 && this.state.pos.length > 0 && this.state.med.length > 0) {
+        const filterstrain = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].flavors.includes(flavor) && weed[1].effects.positive.includes(pos) && weed[1].effects.medical.includes(med))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterRaceFlavorPosMed = async (race, flavor, pos, med) => {
+        if (this.state.race.length === 0 && this.state.flavor.length === 0 && this.state.pos.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.race.length > 0 && this.state.flavor.length > 0 && this.state.pos.length > 0 && this.state.med.length > 0){
+        const filterstrain = await this.state.strains.filter(weed => weed[1].race === race && weed[1].flavors.includes(flavor) && weed[1].effects.positive.includes(pos) && weed[1].effects.medical.includes(med))
+        return this.setState({ filterstrain })
+        }
+        }
+    filterAll = async (name, race, flavor, med, pos) => {
+        if (this.state.name === 0 && this.state.race.length === 0 && this.state.flavor.length === 0 && this.state.pos.length === 0 && this.state.med.length === 0) {return}
+        if (this.state.name >0 && this.state.race.length > 0 && this.state.flavor.length > 0 && this.state.pos.length > 0 && this.state.med.length > 0){
+        const filtered = await this.state.strains.filter(weed => weed[0].includes(name) && weed[1].race === race && weed[1].flavors.includes(flavor) && weed[1].effects.medical.includes(med) && weed[1].effects.positive.includes(pos));
+            
+        return this.setState({ filterstrain: filtered })
+        }
+    }
+        
+    handlefilter = async (name, race, flavor, med, pos) => {
+       
+        await this.filterName(name)
+        await this.filterRace(race)
+        await this.filterFlavor(flavor)
+        await this.filterPos(pos)
+        await this.filterMed(med)
+        await this.filterNameRace(name, race)
+        await this.filterNameFlavor(name, flavor)
+        await this.filterNamePos(name, pos)
+        await this.filterNameMed(name, med)
+// add other two element functions 
+        await this.filterNameRaceFlavor(name, race, flavor)
+        await this.filterNameRacePos(name, race, pos)
+        await this.filterNameRaceMed(name, race, med)
+        await this.filterNameFlavorPos(name, flavor, pos)
+        await this.filterNameFlavorMed(name, flavor, med)
+        await this.filterNameMedPos(name, med, pos)
+        await this.filterNameFlavorPosRace(name, flavor, pos, race)
+        await this.filterNameFlavorMedRace(name, flavor, med, race)
+        await this.filterRaceFlavorPosMed(race, flavor, pos, med)
+        await this.filterAll(name, race, flavor, med, pos)
+        }
+      
 
     handleSubmit = async e => {
         e.preventDefault();
@@ -66,7 +240,6 @@ export default class SearchPage extends Component {
         }
 
     // talk to group about desc and img, mainly img
-    // work on backend to be able to post(name null??)
     handleFavoriteClick = async (rawStrain, rawDesc, rawImg) => {
         const favoriteStrain = {
             name: rawStrain[0],
@@ -92,18 +265,18 @@ export default class SearchPage extends Component {
 
     render() {
         const strains = this.state.filterstrain;
-        console.log(this.state.favorites);
+        console.log(this.state.filterstrain);
         return (
             <div>
                 <form onSubmit={this.handleSubmit} className="searchbar">
                 <select onChange={this.handleRaceChange}>
-                    <option>Select A Type</option>
+                    <option value=''>Select A Type</option>
                     <option value='hybrid'>Hybrid</option>
                     <option value='indica'>Indica</option>
                     <option value='sativa'>Sativa</option>
                 </select>
                 <select onChange={this.handleFlavorChange}>
-                    <option>FlavorTown options</option>
+                    <option value=''>FlavorTown options</option>
                     <option value='Ammonia'>Ammonia</option>
                     <option value='Apple'>Apple</option>
                     <option value='Apricot'>Apricot</option>
@@ -154,7 +327,7 @@ export default class SearchPage extends Component {
                     <option value='Violet'>Violet</option>
                 </select>
                 <select onChange={this.handlePosChange}>
-                    <option>Select A Positive</option>
+                    <option value=''>Select A Positive</option>
                     <option value='Aroused'>Aroused</option>
                     <option value='Creative'>Creative</option>
                     <option value='Energetic'>Energetic</option>
@@ -169,7 +342,7 @@ export default class SearchPage extends Component {
                     <option value='Uplifted'>Uplifted</option>
                 </select>
                 <select onChange={this.handleMedChange}>
-                    <option>Select Medical</option>
+                    <option value=''>Select Medical</option>
                     <option value='Cramps'>Cramps</option>
                     <option value='Depression'>Depression</option>
                     <option value='Eye Pressure'>Eye Pressure</option>
