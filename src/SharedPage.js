@@ -4,7 +4,7 @@ import { shareUserFavorite } from './UTILS/ApiUtils.js';
 export default class SharedPage extends Component {
     state = {
         favorite: '',
-        loaded: false,
+        load: false,
     }
 
     componentDidMount = async () => {
@@ -15,17 +15,28 @@ export default class SharedPage extends Component {
         const response = await shareUserFavorite(this.props.match.params.id);
 
         this.setState({
-            favorite: response,
-            loaded: true,
+            favorite: response[0],
+            load: true,
         })
-
-        console.log(this.state.favorite);
     }
-
     render() {
         return (
             <div>
-                yo
+                {this.state.load &&
+                    <div key={this.state.favorite.id} className="this.state.favorite-div">
+                        <h2>{this.state.favorite.name}</h2>
+                        <p>{this.state.favorite.race}</p>
+                        <p>Flavors: {this.state.favorite.flavors.join(', ')}</p>
+                        <img src={this.state.favorite.img} alt="strain" />
+                        <h3>Effects</h3>
+                        <p>Positive: {this.state.favorite.positive.join(', ')}</p>
+                        <p>Medical: {this.state.favorite.medical.join(', ')}</p>
+                        <p>Negative: {this.state.favorite.negative.join(', ')}</p>
+                        <p>{this.state.favorite.description}</p>
+                        <hr />
+                        <p>Share Favorite:</p>
+                        <p>https://competent-jones-a33e98.netlify.app/share/{this.state.favorite.id}</p>
+                    </div>}
             </div>
         )
     }

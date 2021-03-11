@@ -7,7 +7,8 @@ import {
 
 export default class FavoritesPage extends Component {
     state = {
-        favorites =[],
+        favorites: [],
+        load: false,
     }
 
     componentDidMount = async () => {
@@ -20,6 +21,7 @@ export default class FavoritesPage extends Component {
 
         this.setState({
             favorites: response,
+            load: true,
         })
     }
 
@@ -37,27 +39,28 @@ export default class FavoritesPage extends Component {
     render() {
         return (
             <div>
-                <div className="favorites-wrapper">
-                    {this.state.favorites.map(favorite =>
-                        <div key={favorite.id} className="favorite-div">
-                            <h2>{favorite.name}</h2>
-                            <p>{favorite.race}</p>
-                            <img src={favorite.img} alt="strain" />
-                            <h3>Effects</h3>
-                            <p>Positive: {...favorite.positive}</p>
-                            <p>Negative: {...favorite.negative}</p>
-                            <p>Medical: {...favorite.medical}</p>
-                            <p>Flavors: {...favorite.flavors}</p>
-                            <p>{favorite.description}</p>
-                            <hr />
-                            <p>Share Favorite:</p>
-                            <p>https://fathomless-fortress-68501.herokuapp.com/share/{favorite.id}</p>
-                            <button onClick={() =>
-                                this.handleDeleteFavorite(favorite.id, this.props.token)}>
-                                Deleter Favorite</button>
-                        </div>
-                    )}
-                </div>
+                {this.state.load &&
+                    <div className="favorites-wrapper">
+                        {this.state.favorites.map(favorite =>
+                            <div key={favorite.id} className="favorite-div">
+                                <h2>{favorite.name}</h2>
+                                <p>{favorite.race}</p>
+                                <p>Flavors: {favorite.flavors.join(', ')}</p>
+                                <img src={favorite.img} alt="strain" />
+                                <h3>Effects</h3>
+                                <p>Positive: {favorite.positive.join(', ')}</p>
+                                <p>Medical: {favorite.medical.join(', ')}</p>
+                                <p>Negative: {favorite.negative.join(', ')}</p>
+                                <p>{favorite.description}</p>
+                                <hr />
+                                <p>Share Favorite:</p>
+                                <p>https://competent-jones-a33e98.netlify.app/share/{favorite.id}</p>
+                                <button onClick={() =>
+                                    this.handleDeleteFavorite(favorite.id, this.props.token)}>
+                                    Deleter Favorite</button>
+                            </div>
+                        )}
+                    </div>}
             </div>
         );
     }

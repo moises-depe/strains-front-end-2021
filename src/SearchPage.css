@@ -3,7 +3,8 @@
     border: solid 1px black;
     margin: 5px;
     max-width: 200px;
-    background-image: linear-gradient(rgb(149, 192, 228), rgb(152, 180, 177));
+    /* background-color: rgb(170, 224, 224); */
+    background-image: linear-gradient(rgb(149, 192, 228), rgb(218, 228, 236));
     border-radius: 7px;
 }
 
@@ -20,12 +21,15 @@
 
 .name-header {
     font-size: 15px;
-    color: rgb(68, 8, 50);
+    color: rgb(63, 62, 63);
     font-weight: bold;
+    
 }
 .name {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: bolder;
+    font-variant-caps: small-caps;
+    
 }
 
 .flavors {
