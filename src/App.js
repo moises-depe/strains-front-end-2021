@@ -10,23 +10,22 @@ import { setUserStorage, getStoredUserToken } from './UTILS/LocalStorageUtils.js
 
 import Header from './COMPONENTS/Header.js';
 import PrivateRoute from './COMPONENTS/PrivateRoute.js';
+import PopUp from './COMPONENTS/PopUp.js';
 
 import SignInPage from './AUTH/SignInPage.js';
 import SignUpPage from './AUTH/SignUpPage.js';
 
-// import FavoritesPage from './FAVORITES/FavoritesPage.js';
-// import SearchPage from './FAVORITES/SearchPage.js';
-
+import FavoritesPage from './FavoritesPage.js';
+import SearchPage from './SearchPage.js';
 import HomePage from './HomePage.js';
 import AboutUsPage from './AboutUsPage.js';
-
-import PopUp from './COMPONENTS/PopUp.js';
-
+import SharedPage from './SharedPage.js';
 
 export default class App extends React.Component {
 
   state = {
     token: getStoredUserToken(),
+    showPopup: true,
   }
 
   handleUserChange = (user) => {
@@ -47,12 +46,10 @@ export default class App extends React.Component {
     this.handleUserChange(user);
   }
 
-  constructor(props) {
-    super(props);
-    this.state = { showPopup: true };
-  }
+  //Age verification popup box
+  togglePopup(e) {
+    e.preventDefault();
 
-  togglePopup() {
     this.setState({
       showPopup: !this.state.showPopup
     });
@@ -61,13 +58,13 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        {this.state.showPopup ?
-          <PopUp
-
-            closePopup={this.togglePopup.bind(this)}
-          />
-          : null
-        }
+        {
+          this.state.showPopup
+            ? <PopUp
+              closePopup={this.togglePopup.bind(this)}
+            />
+            : null
+        }
         <Router>
           <Header
             token={this.state.token}
@@ -81,7 +78,7 @@ export default class App extends React.Component {
                   {...routerProps}
                 />}
             />
-            {/* <PrivateRoute
+            { <PrivateRoute
               path="/favorites"
               exact
               token={this.state.token}
@@ -90,17 +87,19 @@ export default class App extends React.Component {
                   token={this.state.token}
                   {...routerProps}
                 />}
-            />
+            /> }
             <PrivateRoute
               path="/search"
               exact
               token={this.state.token}
               render={(routerProps) =>
+
                 <SearchPage
                   token={this.state.token}
                   {...routerProps}
-                />}
-            /> */}
+                />
+              }
+            />
             <Route
               path="/signin"
               exact
@@ -124,6 +123,14 @@ export default class App extends React.Component {
               exact
               render={(routerProps) =>
                 <AboutUsPage
+                  {...routerProps}
+                />}
+            />
+            <Route
+              path="/share/:id"
+              exact
+              render={(routerProps) =>
+                <SharedPage
                   {...routerProps}
                 />}
             />
