@@ -337,8 +337,13 @@ export default class SearchPage extends Component {
             positive: rawStrain[1].effects.positive,
             negative: rawStrain[1].effects.negative,
             medical: rawStrain[1].effects.medical,
-            description: 'hello there',
+            description: `It's like hugging a cat`,
         }
+
+        const desc = await getStrainDescriptionById(rawStrain[1].id);
+
+        favoriteStrain.description = desc.desc;
+
         await addUserFavorite(favoriteStrain, this.props.token);
 
         await this.fetchFavorites();

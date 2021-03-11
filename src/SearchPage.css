@@ -64,3 +64,26 @@
     margin-top: -50px;
     margin-left: -120px;
 }
+
+.description {
+    font-size: 14px;
+    color: rgb(27, 49, 4);
+    text-align: start;
+    margin-left: 7px;
+}
+
+.share-page {
+    margin: auto;  
+    padding: 10px;
+    border: solid 1px black;
+    margin: 5px;
+    max-width: 200px;
+    background-image: linear-gradient(rgb(149, 192, 228), rgb(218, 228, 236));
+    border-radius: 7px;
+}
+
+.share-page-centering {
+    margin: auto;  
+    display: flex;
+    justify-content: center;
+}
