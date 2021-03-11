@@ -1,17 +1,20 @@
-.strain {
+.strain2 {
     padding: 10px;
     border: solid 1px black;
     margin: 5px;
     max-width: 200px;
-    background-image: linear-gradient(rgb(149, 192, 228), rgb(218, 228, 236));
+    background-image: linear-gradient(rgba(241, 135, 13, 0.842), rgb(218, 228, 236));
     border-radius: 7px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
 }
 
 .searchbar {
     margin-bottom: 20px;
 }
 
-.list {
+.list2 {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -32,8 +35,8 @@
     
 }
 
-.flavors {
-    color: rgb(170, 112, 4);
+.flavors2 {
+    color: rgb(109, 71, 0);
 }
 
 .medical {
@@ -46,6 +49,12 @@
 
 .negative {
     color: brown;
+}
+
+.favorites-title2 {
+    font-size: 36px;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-bottom: 200px;
 }
 
 .spinner {
@@ -77,4 +86,16 @@
     margin: auto;  
     display: flex;
     justify-content: center;
+}
+
+.effects-header {
+    margin-bottom: -15px;
+}
+
+
+.share-buttons {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-bottom: -15px;
 }
