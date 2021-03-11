@@ -23,7 +23,7 @@ export default class SharedPage extends Component {
         return (
             <div>
                 {this.state.load &&
-                    <div key={this.state.favorite.id} className="list">
+                    <div key={this.state.favorite.id} className="strain">
                         <p className="name">{this.state.favorite.name}</p>
                         <p><span className="name-header">Type:</span>{this.state.favorite.race}</p>
                         <p className="flavors"><span className="name-header">Flavors:</span> {this.state.favorite.flavors[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
