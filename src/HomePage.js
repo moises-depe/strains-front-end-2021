@@ -17,24 +17,24 @@ export default class HomePage extends Component {
                         Strains Selector also allows you to save your favorite strains under your personal login.
                         <br></br>
                         A link will also be generated for each of your favorites that allows you to share the strain and all of its details.
-                        <br/><br/>
+                        <br /><br />
                         Cannabis plants come in two main classifications. Cannabis sativa and Cannabis indica. The first thing a new user will pick up is which of the two they prefer.
-                        <br/><br/>
+                        <br /><br />
                         Indica plants produce marijuana strains that give you a deep body high, often making you sleepy or “couch-locked”. Indica strains are used to treat chronic pain, anxiety, and insomnia.
-                        <br/><br/>
+                        <br /><br />
                         Sativa plants produce marijuana strains that give you a creative and uplifting “mind high”.  Sativa strains are used to treat depression and are great at providing energy and focus.
-                        <br/><br/>
+                        <br /><br />
                         Hybrids of the two plants create strains that combine benefits of both classifications and are directly influenced by the individual genetics of the plant. The resulting amount of choice is incredible. Hybrid strains   fall into the following categories:
-                        <br/><br/>
+                        <br /><br />
                         Indica Dominant- Excellent for treating daytime pain.
-                        <br/>
+                        <br />
                         Hybrids- Strains that have an equal between a cerebral and body relaxing high.
-                        <br/>
+                        <br />
                         Sativa Dominant- Energetic strains that boost focus and creativity without putting you to sleep.
-                        <br/><br/>
+                        <br /><br />
                 </div>
-                <br/><br/><br/><br/>
-                <img className='classification' src='./weed.png' alt='weed classification picture'></img>
+                <br /><br /><br /><br />
+                <img className='classification' src='./weed.png' alt='weed classification'></img>
             </div>
         )
     }
