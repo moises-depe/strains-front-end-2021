@@ -15,11 +15,11 @@ import PopUp from './COMPONENTS/PopUp.js';
 import SignInPage from './AUTH/SignInPage.js';
 import SignUpPage from './AUTH/SignUpPage.js';
 
-import FavoritesPage from './FavoritesPage.js';
-import SearchPage from './SearchPage.js';
-import HomePage from './HomePage.js';
-import AboutUsPage from './AboutUsPage.js';
-import SharedPage from './SharedPage.js';
+import FavoritesPage from './FAVORITES/FavoritesPage.js';
+import SearchPage from './SEARCH/SearchPage.js';
+import HomePage from './HOME/HomePage.js';
+import AboutUsPage from './ABOUT/AboutUsPage.js';
+import SharedPage from './SHARED/SharedPage.js';
 
 export default class App extends React.Component {
 
@@ -27,6 +27,8 @@ export default class App extends React.Component {
     token: getStoredUserToken(),
     showPopup: true,
   }
+
+  // event handlers
 
   handleUserChange = (user) => {
     setUserStorage(user);
@@ -78,7 +80,7 @@ export default class App extends React.Component {
                   {...routerProps}
                 />}
             />
-            { <PrivateRoute
+            {<PrivateRoute
               path="/favorites"
               exact
               token={this.state.token}
@@ -87,7 +89,7 @@ export default class App extends React.Component {
                   token={this.state.token}
                   {...routerProps}
                 />}
-            /> }
+            />}
             <PrivateRoute
               path="/search"
               exact

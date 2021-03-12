@@ -23,7 +23,7 @@ export default class SignInPage extends React.Component {
 
             this.props.handleUserChange(user);
 
-            this.props.history.push('/search');  // user is pushed to seach page after signin
+            this.props.history.push('/search');
         } catch (e) {
             this.setState({ error: e.response.body.error })
         }

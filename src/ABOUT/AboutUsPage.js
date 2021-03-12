@@ -16,7 +16,7 @@ export default class AboutUsPage extends Component {
                         <div className='b-rad-image about-image'></div>
                         <p className="about-paragraph">brandon ........</p>
                         <div className="about-link">
-                            <a href="http://www.linkedin.com/in/swemoisesdepena/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.linkedin.com/in/brandonperard/" target="_blank" rel="noopener noreferrer">
                                 <div className='li-icon'></div>
                             </a>
                         </div>

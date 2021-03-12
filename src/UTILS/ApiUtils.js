@@ -1,13 +1,13 @@
 import request from 'superagent';
 
-const URL = `https://fathomless-fortress-68501.herokuapp.com`;  // update with Heroku
+const URL = `https://fathomless-fortress-68501.herokuapp.com`;
 
 export async function userSignUp(email, password) {
     const response = await request
         .post(`${URL}/auth/signup`)
         .send({ email, password })
 
-    return response.body;  //id, email, token
+    return response.body;
 }
 
 export async function userSignIn(email, password) {

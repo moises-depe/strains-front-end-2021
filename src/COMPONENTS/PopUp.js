@@ -1,5 +1,5 @@
 import React from 'react';
-import '../HomePage.css';
+import '../HOME/HomePage.css';
 
 class PopUp extends React.Component {
     state = {

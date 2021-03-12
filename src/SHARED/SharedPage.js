@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { shareUserFavorite } from './UTILS/ApiUtils.js';
+import { shareUserFavorite } from '../UTILS/ApiUtils.js';
 
 import './SharedPage.css';
-
 
 import {
     EmailShareButton,

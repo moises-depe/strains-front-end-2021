@@ -18,7 +18,6 @@ export function getStoredUserToken() {
     }
 }
 
-
 export function getStoredUser() {
     const user = localStorage.getItem(USER);
     const parsedUser = JSON.parse(user);

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     getAllUserFavorites,
     deleteUserFavorite,
-} from './UTILS/ApiUtils.js';
+} from '../UTILS/ApiUtils.js';
+
 import './FavoritesPage.css';
 
 import {
@@ -11,6 +12,7 @@ import {
     TwitterShareButton,
     RedditShareButton,
 } from 'react-share';
+
 import {
     EmailIcon,
     FacebookIcon,
@@ -31,8 +33,6 @@ export default class FavoritesPage extends Component {
             favorites: favorites,
             load: true,
         })
-        console.log(this.state.favorites)
-
     }
 
     // Event Handlers
@@ -51,7 +51,6 @@ export default class FavoritesPage extends Component {
     }
 
     render() {
-        console.log(this.state.favorites);
         return (
             <div>
                 <span className="favorites-title2">Favorites</span>
@@ -62,7 +61,6 @@ export default class FavoritesPage extends Component {
                                 <p className="name">{favorite.name}</p>
                                 <p><span className="name-header">Type:</span> {favorite.race}</p>
                                 <p className="flavors2"><span className="name-header">Flavors:</span> {favorite.flavors[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
-
                                 <h3 className="effects-header">Effects</h3>
                                 <p className="recreation"><span className="name-header">Positive:</span> {favorite.positive[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
                                 <p className="medical"><span className="name-header">Medical:</span> {favorite.medical[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>

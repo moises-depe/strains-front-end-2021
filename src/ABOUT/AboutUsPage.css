@@ -56,23 +56,23 @@
 }
 
 .b-rad-image {
-    background-image: url('./ASSETS/b-rad2.png');
+    background-image: url('../ASSETS/b-rad2.png');
 }
 
 .casey-image {
-    background-image: url('./ASSETS/casey.png');
+    background-image: url('../ASSETS/casey.png');
 }
 
 .moises-image {
-    background-image: url('./ASSETS/mo2.png');
+    background-image: url('../ASSETS/mo2.png');
 }
 
 .parker-image {
-    background-image: url('./ASSETS/parker.jpg');
+    background-image: url('../ASSETS/parker.jpg');
 }
 
 .li-icon {
-    background-image: url('./ASSETS/link-icon.png');
+    background-image: url('../ASSETS/link-icon.png');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 20px;
@@ -82,5 +82,5 @@
 } 
 
 .about-link {
-    margin-bottom: -50px;
+    margin-bottom: -20px;
 }
