@@ -16,6 +16,7 @@
     border-radius: 7px;
     margin: auto;  
     height: 600px;
+    position: relative;
 }
 
 .about-info-head {
@@ -44,7 +45,7 @@
 
 .about-paragraph {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .about-image {
@@ -82,5 +83,11 @@
 } 
 
 .about-link {
-    margin-bottom: -20px;
+    position: absolute;
+    bottom: -5%;
+}
+
+.about-favorite {
+    font-weight: bold;
+    margin-top: 20px;
 }
