@@ -54,7 +54,7 @@ export default class AboutUsPage extends Component {
                         <p className="profession">Software Developer</p>
                         <div className='parker-image about-image'></div>
                         <p className="about-paragraph">I am a Full-Stack Developer from Salem OR. In my free time i enjoy playing soccer and going rock climbing.
-                        My favorite pseudonym for marijuana is Electric Lettus.</p>
+                        My favorite pseudonym for marijuana is Electric Lettuce.</p>
                         <div className="about-link">
                             <a href="https://www.linkedin.com/in/parker-sequeira/" target="_blank" rel="noopener noreferrer">
                                 <div className='li-icon'></div>
