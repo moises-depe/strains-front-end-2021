@@ -69,7 +69,7 @@ export default class FavoritesPage extends Component {
                                 <hr />
                                 <div className="copy-div">
                                     <p className="name-header">Link to Share Favorite:</p>
-                                    <a className={`${favorite.race}${favorite.id}`} href={`https://strains-selector.netlify.app/share/${favorite.id}`}>{`https://competent-jones-a33e98.netlify.app/share/${favorite.id}`}</a>
+                                    <a className={`${favorite.race}${favorite.id}`} href={`https://strains-selector.netlify.app/share/${favorite.id}`}>{`https://strains-selector.netlify.app/share/${favorite.id}`}</a>
                                     <button onClick={() => {
                                         this.handleCopyClick(favorite)
                                     }
