@@ -1,3 +1,6 @@
+BACKEND GIT HUB: https://github.com/moises-depe/strains-back-end-2021/tree/parker-dev
+
+
 ## Photo Credit
 
 medical marijuana Symbol: https://primarywalkinmedical.com/medical-marijuana/
