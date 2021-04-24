@@ -50,6 +50,7 @@ export default class FavoritesPage extends Component {
         alert(`Link copied to clipboard. Sharing is caring!`);
     }
 
+    // this seems very similar to the SharedPage.js component. I wonder if you could have made them one component that takes different props? Either way, my feedback on SharedPage applies here as well
     render() {
         return (
             <div>

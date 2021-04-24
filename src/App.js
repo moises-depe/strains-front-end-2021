@@ -53,6 +53,7 @@ export default class App extends React.Component {
     e.preventDefault();
 
     this.setState({
+      // cool piece of state!
       showPopup: !this.state.showPopup
     });
   }
@@ -62,10 +63,9 @@ export default class App extends React.Component {
       <div>
         {
           this.state.showPopup
-            ? <PopUp
+            && <PopUp
               closePopup={this.togglePopup.bind(this)}
             />
-            : null
         }
         <Router>
           <Header

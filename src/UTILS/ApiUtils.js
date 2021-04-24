@@ -18,6 +18,19 @@ export async function userSignIn(email, password) {
     return response.body;
 }
 
+// a lot of these functions could be made leaner by calling this function, which would reduce duplication
+// async function makeRequest(url, param, token) {
+//     const response = await request
+//         .get(`${URL}${url}${param}`)
+//         .set('Authorization', token);
+//     return response.body;
+// }
+
+// export async function deleteThing(thingId, token) {
+//     return await makeRequest('/api/thing/', thingId, token);
+// }
+
+
 export async function getAllStrains() {
     const response = await request
         .get(`${URL}/strains`)
