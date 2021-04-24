@@ -41,19 +41,39 @@ export default class SharedPage extends Component {
         alert(`Link copied to clipboard. Sharing is caring!`);
     }
 
+    parse = (arr) => arr[0].split('","').join(', ').replace(/{|}|"/g, '')
+
     render() {
+        const URL =`https://strains-selector.netlify.app/share/${this.state.favorite.id}`
+        const iconProps = { size: 32, round: true };
+        const { favorite } = this.state;
         return (
             <div className="share-page-centering">
                 {this.state.load &&
                     <div key={this.state.favorite.id} className="share-page">
-                        <p className="name">{this.state.favorite.name}</p>
-                        <p><span className="name-header">Type:</span>{this.state.favorite.race}</p>
-                        <p className="flavors"><span className="name-header">Flavors:</span> {this.state.favorite.flavors[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
+                        <p className="name">{favorite.name}</p>
+                        <p>
+                            <span className="name-header">Type:</span>
+                            {favorite.race}
+                        </p>
+                        <p className="flavors">
+                            <span className="name-header">Flavors:</span> 
+                            {this.parse(favorite.flavors)}
+                        </p>
                         <h3>Effects</h3>
-                        <p className="recreation"><span className="name-header">Positive:</span> {this.state.favorite.positive[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
-                        <p className="medical2"><span className="name-header">Medical:</span> {this.state.favorite.medical[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
-                        <p className="negative"><span className="name-header">Negative:</span> {this.state.favorite.negative[0].split('","').join(', ').replace(/{|}|"/g, '')}</p>
-                        <p className="description">{this.state.favorite.description}</p>
+                        <p className="recreation">
+                            <span className="name-header">Positive:</span> 
+                            {this.parse(favorite.positive)}
+                        </p>
+                        <p className="medical2">
+                            <span className="name-header">Medical:</span> 
+                            {this.parse(favorite.medical)}
+                        </p>
+                        <p className="negative">
+                            <span className="name-header">Negative:</span> 
+                            {this.parse(favorite.negative)}
+                        </p>
+                        <p className="description">{this.parse(favorite.description)}</p>
                         <hr />
                         <div className="copy-div">
                             <p>Link to Share Favorite:</p>
@@ -64,10 +84,18 @@ export default class SharedPage extends Component {
                             }>Copy to Clipboard</button>
                         </div>
                         <div>
-                            <EmailShareButton url={`https://strains-selector.netlify.app/share/${this.state.favorite.id}`}><EmailIcon size={32} round={true} /></EmailShareButton>
-                            <FacebookShareButton url={`https://strains-selector.netlify.app/share/${this.state.favorite.id}`}><FacebookIcon size={32} round={true} /></FacebookShareButton>
-                            <RedditShareButton url={`https://strains-selector.netlify.app/share/${this.state.favorite.id}`}><RedditIcon size={32} round={true} /></RedditShareButton>
-                            <TwitterShareButton url={`https://strains-selector.netlify.app/share/${this.state.favorite.id}`}><TwitterIcon size={32} round={true} /></TwitterShareButton>
+                            <EmailShareButton url={URL}>
+                                <EmailIcon {...iconProps} />
+                            </EmailShareButton>
+                            <FacebookShareButton url={URL}>
+                                <FacebookIcon {...iconProps} />
+                                </FacebookShareButton>
+                            <RedditShareButton url={URL}>
+                                <RedditIcon {...iconProps} />
+                            </RedditShareButton>
+                            <TwitterShareButton url={URL}>
+                                <TwitterIcon {...iconProps} />
+                            </TwitterShareButton>
                         </div>
                     </div>}
             </div>
